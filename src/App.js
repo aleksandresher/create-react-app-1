@@ -1,3 +1,4 @@
+
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -8,6 +9,6 @@ function App() {
       </header>
     </div>
   );
-}
+
 
 export default App;
