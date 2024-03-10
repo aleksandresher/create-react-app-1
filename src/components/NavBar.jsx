@@ -2,7 +2,7 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav>
+    <nav className="">
       <ul>
         <li>
           <a href="/">მთავარი</a>
