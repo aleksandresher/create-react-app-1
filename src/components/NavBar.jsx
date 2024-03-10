@@ -2,8 +2,8 @@ import React from "react";
 
 const NavBar = () => {
   return (
-    <nav className="">
-      <ul className="flex gap-3">
+    <nav className="w-1/2">
+      <ul className="flex justify-between ">
         <li>
           <a href="/">მთავარი</a>
         </li>
