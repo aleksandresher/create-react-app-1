@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
   return (
     <nav className="">
-      <ul>
+      <ul className="flex gap-3">
         <li>
           <a href="/">მთავარი</a>
         </li>
