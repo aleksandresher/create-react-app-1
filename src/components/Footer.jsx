@@ -2,21 +2,38 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="w-full flex absolute bottom-0 p-8 items-center justify-between bg-[#f48c06] h-[60px]">
-      <div className="flex items-start gap-8 ">
-        <button className="text-white">წესები და პირობები</button>
-        <button className="text-white">კონფიდენციალურობის პოლიტიკა</button>
+    <section className="w-full flex absolute bottom-0 p-3 items-center  bg-[#131313] h-[80px]">
+      <div className="flex justify-start gap-11 w-1/2 pl-4  ">
+        <button className="text-gray-400">Terms & Privacy</button>
+        <button className="text-gray-400">Security</button>
       </div>
 
-      <nav>
-        <ul className="flex gap-4">
+      <nav className="w-1/2">
+        <ul className="flex gap-4 items-center justify-between">
+          <li>
+            <a href="/" className="text-gray-400">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="/About" className="text-gray-400">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/Products" className="text-gray-400">
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="/Contact" className="text-gray-400">
+              Contact
+            </a>
+          </li>
           <li>
             <a href="https://www.youtube.com/">
               <img
-                src={
-                  process.env.PUBLIC_URL +
-                  "../../public/assets/youtube-icon.png"
-                }
+                src={process.env.PUBLIC_URL + "./assets/youtube-icon.png"}
                 alt="youtube-icon"
                 className="w-[40px] h-[40px]"
               />
@@ -25,7 +42,7 @@ const Footer = () => {
           <li>
             <a href="https://facebook.com/">
               <img
-                src={process.env.PUBLIC_URL + "../../public/assets/fb-icon.png"}
+                src={process.env.PUBLIC_URL + "./assets/fb-icon.png"}
                 alt="facebook-icon"
                 className="w-[40px] h-[40px]"
               />

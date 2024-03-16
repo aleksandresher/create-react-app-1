@@ -19,7 +19,7 @@ export const ProductListData = [
   {
     name: "iPhone 15 Pro Max",
     desctiption:
-      "6.7 ProMotion LTPO OLED display, A17 chip, revolutionary camera system, enhanced 5G technology",
+      "6.7 ProMotion LTPO OLED display, A17 chip, revolutionary camera system",
     image: "./assets/iphone15pro.jpg",
   },
 ];

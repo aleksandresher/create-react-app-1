@@ -7,12 +7,7 @@ import Search from "./components/Search";
 function App() {
   return (
     <div>
-      <header className="flex justify-between items-center p-8  bg-[#f48c06] h-[60px]">
-        <img
-          src={process.env.PUBLIC_URL + "/assets/brain-image.png"}
-          alt="company-logo"
-          className="w-[30px] h-[40px]"
-        />
+      <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
         <NavBar />
       </header>
       <Search />
@@ -27,7 +22,7 @@ function App() {
           );
         })}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
