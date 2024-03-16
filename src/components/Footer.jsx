@@ -1,6 +1,4 @@
 import React from "react";
-import fb_icon from "../assets/fb-icon.png";
-import youtube_icon from "../assets/youtube-icon.png";
 
 const Footer = () => {
   return (
@@ -15,7 +13,10 @@ const Footer = () => {
           <li>
             <a href="https://www.youtube.com/">
               <img
-                src={youtube_icon}
+                src={
+                  process.env.PUBLIC_URL +
+                  "../../public/assets/youtube-icon.png"
+                }
                 alt="youtube-icon"
                 className="w-[40px] h-[40px]"
               />
@@ -24,7 +25,7 @@ const Footer = () => {
           <li>
             <a href="https://facebook.com/">
               <img
-                src={fb_icon}
+                src={process.env.PUBLIC_URL + "../../public/assets/fb-icon.png"}
                 alt="facebook-icon"
                 className="w-[40px] h-[40px]"
               />
