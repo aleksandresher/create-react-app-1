@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="w-full flex absolute bottom-0 p-3 items-center  bg-[#131313] h-[80px]">
-      <div className="flex justify-start gap-11 w-1/2 pl-4  ">
+    <section className="w-full flex  p-3 items-center  bg-[#131313] h-[80px] fixed bottom-0">
+      <div className="flex justify-start gap-11 w-1/3 pl-4  ">
         <button className="text-gray-400">Terms & Privacy</button>
         <button className="text-gray-400">Security</button>
       </div>
@@ -30,26 +30,25 @@ const Footer = () => {
               Contact
             </a>
           </li>
-          <li>
-            <a href="https://www.youtube.com/">
-              <img
-                src={process.env.PUBLIC_URL + "./assets/youtube-icon.png"}
-                alt="youtube-icon"
-                className="w-[40px] h-[40px]"
-              />
-            </a>
-          </li>
-          <li>
-            <a href="https://facebook.com/">
-              <img
-                src={process.env.PUBLIC_URL + "./assets/fb-icon.png"}
-                alt="facebook-icon"
-                className="w-[40px] h-[40px]"
-              />
-            </a>
-          </li>
         </ul>
       </nav>
+      <div className="flex w-1/3 items-center justify-end gap-6 pr-[100px]">
+        <a href="https://www.youtube.com/">
+          <img
+            src={process.env.PUBLIC_URL + "./assets/youtube-icon.png"}
+            alt="youtube-icon"
+            className="w-[40px] h-[40px]"
+          />
+        </a>
+
+        <a href="https://facebook.com/">
+          <img
+            src={process.env.PUBLIC_URL + "./assets/fb-icon.png"}
+            alt="facebook-icon"
+            className="w-[40px] h-[40px]"
+          />
+        </a>
+      </div>
     </section>
   );
 };

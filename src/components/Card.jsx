@@ -8,7 +8,7 @@ export default function Card({ name, description, image }) {
       </span>
 
       <div className="flex justify-center">
-        <button className="bg-[#edede9] p-3 rounded-md w-1/2">
+        <button className="bg-[#faedcd] p-3 rounded-md w-1/2">
           Add to cart
         </button>
       </div>
