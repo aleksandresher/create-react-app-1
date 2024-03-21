@@ -74,7 +74,7 @@ export default function Contact() {
               placeholder="Type your message  here"
             ></textarea>
           </span>
-          <button className="col-span-2 place-self-start bg-[#ffba08] mt-6 p-3 rounded-lg">
+          <button className="col-span-2 place-self-start bg-[#ffba08] mt-6 p-3 rounded-lg hover:bg-[#f48c06]">
             Send Message
           </button>
         </form>
