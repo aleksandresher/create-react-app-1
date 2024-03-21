@@ -5,11 +5,11 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
         <NavBar />
       </header>
-      <main>
+      <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
