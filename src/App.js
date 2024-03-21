@@ -1,26 +1,19 @@
 import NavBar from "./components/NavBar";
-
 import Footer from "./components/Footer";
-import { ProductListData } from "./data";
-import Card from "./components/Card";
-import Search from "./components/Search";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
 function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
         <NavBar />
       </header>
-      <Search />
-      <main className="w-full grid grid-cols-4 p-8 gap-6 mt-3">
-        {ProductListData.map((item) => {
-          return (
-            <Card
-              name={item.name}
-              description={item.desctiption}
-              image={item.image}
-            />
-          );
-        })}
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </main>
       <Footer />
     </div>

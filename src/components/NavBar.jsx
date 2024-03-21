@@ -1,48 +1,58 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <nav className="w-1/3 pr-[100px]">
       <ul className="flex justify-between gap-2 ">
         <li>
-          <a
-            href="/"
-            className="text-black  hover:underline underline-offset-2  "
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
           >
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="/about"
-            className="text-black  hover:underline underline-offset-2 "
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
           >
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="/products"
-            className="text-black  hover:underline underline-offset-2 "
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
           >
             Products
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a
-            href="/contact"
-            className="text-black  hover:underline underline-offset-2 "
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
           >
             Contact
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/cart">
+          <NavLink to="/cart">
+            {" "}
             <img
               src={process.env.PUBLIC_URL + "./assets/shopping-cart.png"}
               alt="cart"
             />
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
