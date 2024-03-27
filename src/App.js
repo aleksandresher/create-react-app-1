@@ -11,7 +11,7 @@ function App() {
       <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
         <NavBar />
       </header>
-      <main className="flex-1">
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section className="w-full flex  p-3 items-center  bg-[#131313] h-[80px] fixed bottom-0">
+    <footer className="w-full flex  p-3 items-center  bg-[#131313] h-[80px]">
       <div className="flex justify-start gap-11 w-1/3 pl-4  ">
         <button className="text-gray-400">Terms & Privacy</button>
         <button className="text-gray-400">Security</button>
@@ -49,7 +49,7 @@ const Footer = () => {
           />
         </a>
       </div>
-    </section>
+    </footer>
   );
 };
 
