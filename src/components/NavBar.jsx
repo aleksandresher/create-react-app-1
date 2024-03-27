@@ -45,20 +45,35 @@ const NavBar = () => {
             Contact
           </NavLink>
         </li>
+
+        <li>
+          <NavLink
+            to="/blog"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
+          >
+            Blog
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive ? "underline underline-offset-4" : ""
+            }
+          >
+            Profile
+          </NavLink>
+        </li>
         <li>
           <NavLink to="/cart">
-            {" "}
             <img
               src={process.env.PUBLIC_URL + "./assets/shopping-cart.png"}
               alt="cart"
             />
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/blog">blog</NavLink>
-        </li>
-        <li>
-          <NavLink to="/profile">profile</NavLink>
         </li>
       </ul>
     </nav>
