@@ -1,9 +1,43 @@
-import React from "react";
+import { useState } from "react";
 
 export default function ProfileForm() {
+  const initialState = {
+    name: "John",
+    lastname: "Doe",
+    email: "john.doe@yahoo.com",
+    password: "",
+    confirmPassword: "",
+  };
+
+  const [inputs, setInputs] = useState(initialState);
+
+  const handleChange = (key, input) => {
+    setInputs((prevState) => ({ ...prevState, [key]: input }));
+  };
+
+  const handleFocus = (key) => {
+    if (inputs[key] === initialState[key]) {
+      setInputs((prevState) => ({ ...prevState, [key]: "" }));
+    }
+  };
+
+  const handleBlur = (key) => {
+    if (inputs[key] === "") {
+      setInputs((prevState) => ({ ...prevState, [key]: initialState[key] }));
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputs);
+  };
+
   return (
     <div className="flex justify-center p-4">
-      <form className="grid grid-cols-1 grid-rows-4 gap-4 items-center w-[400px]">
+      <form
+        onSubmit={handleSubmit}
+        className="grid grid-cols-1 grid-rows-4 gap-4 items-center w-[400px]"
+      >
         <div className="flex flex-col gap-1">
           <label htmlFor="username" className="font-medium">
             Name
@@ -13,7 +47,10 @@ export default function ProfileForm() {
             placeholder="name"
             className="border p-1 h-[40px] rounded-sm"
             id="username"
-            value="John"
+            value={inputs.name}
+            onChange={(event) => handleChange("name", event.target.value)}
+            onFocus={() => handleFocus("name")}
+            onBlur={() => handleBlur("name")}
           />
         </div>
 
@@ -26,7 +63,10 @@ export default function ProfileForm() {
             placeholder="lastname"
             className="border p-1"
             id="lastname"
-            value="Doe"
+            value={inputs.lastname}
+            onChange={(event) => handleChange("lastname", event.target.value)}
+            onFocus={() => handleFocus("lastname")}
+            onBlur={() => handleBlur("lastname")}
           />
         </div>
 
@@ -39,7 +79,10 @@ export default function ProfileForm() {
             placeholder="email"
             className="border p-1"
             id="email"
-            value="john.doe@yahoo.com"
+            value={inputs.email}
+            onChange={(event) => handleChange("email", event.target.value)}
+            onFocus={() => handleFocus("email")}
+            onBlur={() => handleBlur("email")}
           />
         </div>
 
@@ -52,6 +95,8 @@ export default function ProfileForm() {
             placeholder="password"
             className="border p-1"
             id="password"
+            value={inputs.password}
+            onChange={(event) => handleChange("password", event.target.value)}
           />
         </div>
 
@@ -64,6 +109,10 @@ export default function ProfileForm() {
             placeholder="confrim password"
             className="border p-1"
             id="confirmPassword"
+            value={inputs.confirmPassword}
+            onChange={(event) =>
+              handleChange("confirmPassword", event.target.value)
+            }
           />
         </div>
         <button
