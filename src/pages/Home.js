@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [products, setProducts] = useState(ProductListData);
   const [search, setSearch] = useState("");
+  const [sortedDescending, setSortedDescending] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -19,9 +20,22 @@ export default function Home() {
       clearTimeout(timer);
     };
   }, [search]);
+
+  const sortProducts = () => {
+    const sortedProducts = [...products].sort((a, b) =>
+      sortedDescending ? b.price - a.price : a.price - b.price
+    );
+    setProducts(sortedProducts);
+    setSortedDescending(!sortedDescending);
+  };
   return (
     <div className="flex flex-col">
-      <Search search={search} setSearch={setSearch} />
+      <Search
+        search={search}
+        setSearch={setSearch}
+        sort={sortProducts}
+        sorted={sortedDescending}
+      />
       <div className="w-full grid grid-cols-4 p-8 gap-6 mt-3">
         {products.map((item) => {
           return (
@@ -29,6 +43,7 @@ export default function Home() {
               name={item.name}
               description={item.desctiption}
               image={item.image}
+              price={item.price}
             />
           );
         })}
