@@ -1,10 +1,16 @@
-export default function Search() {
+export default function Search({ search, setSearch }) {
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <form className="flex w-full justify-center items-center gap-5 mt-4 p-4 h-[60px]">
       <input
         type="text"
         placeholder="Search for Product"
         className="block w-1/3 p-4  text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 placeholder-gray-700 focus:border-green-600 outline-none"
+        onChange={handleChange}
+        value={search}
       />
       <button
         type="submit"
