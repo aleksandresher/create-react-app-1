@@ -41,6 +41,7 @@ export default function Home() {
         {products.map((item) => {
           return (
             <Card
+              key={item.id}
               name={item.name}
               description={item.desctiption}
               image={item.image}
@@ -52,4 +53,3 @@ export default function Home() {
     </div>
   );
 }
-
