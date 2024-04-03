@@ -1,10 +1,11 @@
-import { blogPosts } from "@/blogData";
-import BlogPostCard from "@/components/BlogCard";
+import { BlogData } from "../../blogData";
+import BlogPostCard from "../../components/BlogCard";
 
 export default function Blog() {
+  console.log(BlogData);
   return (
     <div className="grid grid-cols-3 gap-3 p-12 gap-y-8 bg-[#efefef]">
-      {blogPosts.map((item) => {
+      {BlogData?.map((item) => {
         return (
           <BlogPostCard
             key={item.id}

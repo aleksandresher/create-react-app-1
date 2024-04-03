@@ -1,4 +1,4 @@
-export const blogPosts = [
+export const BlogData = [
   {
     id: 1,
     title: "10 Tips for Beginner Gardeners",

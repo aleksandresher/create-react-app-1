@@ -1,7 +1,8 @@
+import Image from "next/image";
 export default function Card({ name, description, image, price }) {
   return (
     <div className="grid grid-cols-1  justify-center shadow-lg p-2 gap-2 w-4/5 ">
-      <img src={process.env.PUBLIC_URL + image} alt={name} className="" />
+      <Image src={image} alt={name} width={300} height={200} />
       <span className="flex flex-col items-center">
         <h1>{name}</h1>
         <p className="w-[200px] text-center">{description}</p>

@@ -35,7 +35,7 @@ const Footer = () => {
       <div className="flex w-1/3 items-center justify-end gap-6 pr-[100px]">
         <Link href="https://www.youtube.com/">
           <img
-            src={process.env.PUBLIC_URL + "./assets/youtube-icon.png"}
+            src="/youtube-icon.png"
             alt="youtube-icon"
             className="w-[40px] h-[40px]"
           />
@@ -43,7 +43,7 @@ const Footer = () => {
 
         <Link href="https://facebook.com/">
           <img
-            src={process.env.PUBLIC_URL + "./assets/fb-icon.png"}
+            src="./fb-icon.png"
             alt="facebook-icon"
             className="w-[40px] h-[40px]"
           />

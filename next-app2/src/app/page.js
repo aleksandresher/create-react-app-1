@@ -1,7 +1,7 @@
 "use client";
-import { ProductListData } from "@/data";
-import Card from "@/components/Card";
-import Search from "@/components/Search";
+import { ProductListData } from "../data";
+import Card from "../components/Card";
+import Search from "../components/Search";
 import { useState, useEffect } from "react";
 
 export default function Home() {
