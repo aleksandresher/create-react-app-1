@@ -1,4 +1,4 @@
-import BlogList from "@/components/BlogList";
+import BlogList from "@/components/blogs/BlogList";
 
 async function getRecipes() {
   const res = await fetch("https://dummyjson.com/recipes");

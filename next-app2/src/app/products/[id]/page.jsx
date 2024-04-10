@@ -1,4 +1,4 @@
-import SingleProduct from "@/components/SingleProduct";
+import SingleProduct from "@/components/products/SingleProduct";
 import SingleProductSkeleton from "@/components/skeletons/SingleProductPageSkeleton";
 import { Suspense } from "react";
 

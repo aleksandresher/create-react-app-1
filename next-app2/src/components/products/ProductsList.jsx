@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Card from "./Card";
-import Search from "./Search";
+import Search from "../search/Search";
 
 export default function ProductList({ products }) {
   const [productList, setProductList] = useState(products);

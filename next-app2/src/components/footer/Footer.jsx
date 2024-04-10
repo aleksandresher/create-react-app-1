@@ -43,7 +43,7 @@ const Footer = () => {
 
         <Link href="https://facebook.com/">
           <img
-            src="./fb-icon.png"
+            src="/fb-icon.png"
             alt="facebook-icon"
             className="w-[40px] h-[40px]"
           />
