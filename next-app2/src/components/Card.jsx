@@ -25,7 +25,7 @@ export default function Card({ title, image, price, id }) {
 
         <div className="flex justify-center">
           <button className="bg-[#faedcd] p-3 rounded-md w-1/2">
-            Add to cart
+            Add to cart.
           </button>
         </div>
       </div>
