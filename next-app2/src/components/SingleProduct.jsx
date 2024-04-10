@@ -1,21 +1,24 @@
-"use client";
 import Image from "next/image";
 
-export default async function SingleProduct() {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  const product = res.json();
-  console.log(product);
-
+export default async function SingleProduct({ product }) {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col shadow-2xl p-8 max-w-[500px] m-h-[500px]">
       <Image
-        src={product?.iamge[0]}
+        src={product?.images?.[2]}
         // alt={product.title}
-        width={100}
-        height={100}
+        width={600}
+        height={600}
+        alt={product.title}
+        className="w-[500px] rounded-[20px] max-w-[400px]"
       />
-      <h1>{product.title}</h1>
-      <h2>{product.description}</h2>
+      <span className="flex flex-col gap-3 items-center">
+        <h1 className="font-bold text-xl">{product.title}</h1>
+        <h1 className="font-medium">{product.description}</h1>
+        <div className="flex gap-2 items-center h-[40px] mt-2">
+          <p className="font-medium text-xl">Price:</p>
+          <p className="text-green-600 text-xl">{product.price}$</p>
+        </div>
+      </span>
     </div>
   );
 }

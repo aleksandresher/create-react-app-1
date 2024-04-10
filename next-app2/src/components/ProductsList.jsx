@@ -38,7 +38,7 @@ export default function ProductList({ products }) {
         sort={sortProduct}
         sorted={sortedDescending}
       />
-      <div className="w-11/12 grid grid-cols-4 gap-7">
+      <div className="w-11/12 grid grid-cols-4 gap-7 mt-6">
         {productList?.map((item) => {
           return (
             <Card

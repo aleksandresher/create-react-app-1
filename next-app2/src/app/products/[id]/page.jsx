@@ -1,23 +1,20 @@
 import SingleProduct from "@/components/SingleProduct";
 
-export async function generateStaticParams() {
-  const res = await fetch(`https://dummyjson.com/products`);
-  const data = res.json();
-  console.log(data);
+async function getProduct({ id }) {
+  const res = await fetch(`https://dummyjson.com/product/${id}`);
 
-  if (!data || !data.products) {
-    return [];
+  if (!res.ok) {
+    throw new Error("Failed to fetch products");
   }
-  return data.products.map((product) => ({
-    id: product.id,
-  }));
+  return res.json();
 }
 
-export default function SingleProductPage({ params }) {
+export default async function SingleProductPage({ params }) {
   const { id } = params;
+  const product = await getProduct({ id });
   return (
-    <section>
-      <SingleProduct id={id} />
+    <section className="flex justify-center mt-9">
+      <SingleProduct product={product} />
     </section>
   );
 }

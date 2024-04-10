@@ -1,5 +1,9 @@
 import ProductListSkeleton from "@/components/skeletons/ProductListSkeleton";
 
 export default function Loading() {
-  return <ProductListSkeleton />;
+  return (
+    <div className="flex w-full justify-center">
+      <ProductListSkeleton />
+    </div>
+  );
 }

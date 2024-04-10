@@ -7,7 +7,9 @@ const NavBar = () => {
   const pathname = usePathname();
 
   function defineActive(path) {
-    if (pathname === path) {
+    if (path === "/" && pathname === path) {
+      return true;
+    } else if (path !== "/" && pathname.startsWith(path)) {
       return true;
     } else {
       return false;
