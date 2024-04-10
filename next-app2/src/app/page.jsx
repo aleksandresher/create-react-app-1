@@ -1,4 +1,5 @@
 import ProductList from "@/components/ProductsList";
+
 async function getProducts() {
   const res = await fetch("https://dummyjson.com/products");
 

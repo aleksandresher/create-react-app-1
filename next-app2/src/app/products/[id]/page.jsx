@@ -1,4 +1,6 @@
 import SingleProduct from "@/components/SingleProduct";
+import SingleProductSkeleton from "@/components/skeletons/SingleProductPageSkeleton";
+import { Suspense } from "react";
 
 async function getProduct({ id }) {
   const res = await fetch(`https://dummyjson.com/product/${id}`);
@@ -14,7 +16,9 @@ export default async function SingleProductPage({ params }) {
   const product = await getProduct({ id });
   return (
     <section className="flex justify-center mt-9">
-      <SingleProduct product={product} />
+      <Suspense fallback={<SingleProductSkeleton />}>
+        <SingleProduct product={product} />
+      </Suspense>
     </section>
   );
 }
