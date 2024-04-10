@@ -1,11 +1,20 @@
 import Image from "next/image";
-export default function Card({ name, description, image, price }) {
+export default function Card({ title, image, price }) {
   return (
-    <div className="grid grid-cols-1  justify-center shadow-lg p-2 gap-2 w-4/5 ">
-      <Image src={image} alt={name} width={300} height={300} />
+    <div className="grid grid-cols-1 items-center shadow-lg py-5 gap-2 ">
+      <span className="flex justify-center">
+        {" "}
+        <Image
+          src={image}
+          alt={title}
+          width={300}
+          height={300}
+          className="w-[250px] h-[250px] rounded-lg"
+        />
+      </span>
+
       <span className="flex flex-col items-center">
-        <h1>{name}</h1>
-        <p className="w-[200px] text-center">{description}</p>
+        <h1>{title}</h1>
         <div className="flex gap-2 items-center h-[40px] mt-2">
           <p>Price:</p>
           <p className="text-green-600">{price}$</p>
