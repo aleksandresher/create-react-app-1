@@ -1,13 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function BlogPostCard({ id, title, description, pubdate }) {
+export default function BlogPostCard({
+  id,
+  title,
+  description,
+  pubdate,
+  image,
+}) {
   return (
     <div className="flex flex-col items-center justify-between gap-3 p-6 rounded-md bg-[#fff]">
       <h1 className="font-bold text-center h-[40px]">{title}</h1>
       <p className="text-center">{description}</p>
       <Image
-        src="/blog.png"
+        src={image}
         alt={title}
         className="w-[300px]"
         width={300}

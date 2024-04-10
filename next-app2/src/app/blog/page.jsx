@@ -1,22 +1,20 @@
-import { BlogData } from "../../blogData";
-import BlogPostCard from "../../components/BlogCard";
+import BlogList from "@/components/BlogList";
 
-export default function Blog() {
-  console.log(BlogData);
+async function getRecipes() {
+  const res = await fetch("https://dummyjson.com/recipes");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch recipes");
+  }
+  return res.json();
+}
+
+export default async function Home() {
+  const recipes = await getRecipes();
+
   return (
-    <div className="grid grid-cols-3 gap-3 p-12 gap-y-8 bg-[#efefef]">
-      {BlogData?.map((item) => {
-        return (
-          <BlogPostCard
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            image={item.image}
-            pubdate={item.publishing_date}
-          />
-        );
-      })}
+    <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
+      <BlogList recipes={recipes.recipes} />
     </div>
   );
 }
