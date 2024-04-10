@@ -3,6 +3,7 @@ import SingleProduct from "@/components/SIngleProduct";
 export async function generateStaticParams() {
   const res = await fetch(`https://dummyjson.com/products`);
   const data = res.json();
+  console.log(data);
 
   if (!data || !data.products) {
     return [];
