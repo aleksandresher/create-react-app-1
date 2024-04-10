@@ -42,6 +42,7 @@ export default function ProductList({ products }) {
         {productList?.map((item) => {
           return (
             <Card
+              id={item.id}
               key={item.id}
               title={item.title}
               image={item.images[0]}
