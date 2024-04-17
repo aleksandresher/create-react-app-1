@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import LogOut from "../logout/LogOut";
 
 const NavBar = () => {
   const pathname = usePathname();
@@ -90,6 +91,9 @@ const NavBar = () => {
                 height={20}
               />
             </Link>
+          </li>
+          <li>
+            <LogOut />
           </li>
         </ul>
       </nav>

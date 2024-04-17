@@ -1,3 +1,10 @@
+import { cookies } from "next/headers";
+import LoginForm from "@/components/login/Login";
+
 export default function Login() {
-  return <h1>Login page</h1>;
+  return (
+    <section>
+      <LoginForm />
+    </section>
+  );
 }

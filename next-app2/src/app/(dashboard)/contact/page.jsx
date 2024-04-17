@@ -42,7 +42,7 @@ export default function Contact() {
               type="text"
               id="email"
               placeholder="random@gmail.com"
-              className="h-10 p-2 border text-sm text-gray-900  border-gray-300 rounded-lg bg-gray-50 placeholder-gray-700 focus:border-green-600 outline-none p-1"
+              className="h-10  border text-sm text-gray-900  border-gray-300 rounded-lg bg-gray-50 placeholder-gray-700 focus:border-green-600 outline-none p-1"
             />
           </span>
           <span className="flex flex-col gap-1 ">
