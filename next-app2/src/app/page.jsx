@@ -1,5 +1,5 @@
 import Footer from "@/components/footer/Footer";
-import NavBar from "@/components/nav/Navbar";
+import NavBarWrapper from "@/components/nav/NavBarWrapper";
 
 import ProductList from "@/components/products/ProductsList";
 
@@ -17,7 +17,7 @@ export default async function Home() {
 
   return (
     <section>
-      <NavBar />
+      <NavBarWrapper />
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
         <ProductList products={products.products} />
       </div>

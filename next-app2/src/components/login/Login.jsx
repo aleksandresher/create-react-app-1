@@ -13,7 +13,7 @@ export default function LoginForm() {
     }));
   };
 
-  const updatedWithUser = loginUser.bind(user);
+  //   const updatedWithUser = loginUser.bind(user);
   return (
     <form action={loginUser}>
       <input

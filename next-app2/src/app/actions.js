@@ -27,4 +27,5 @@ export async function loginUser(user) {
 
 export async function logout() {
   cookies().delete("auth");
+  redirect("http://localhost:3000/login");
 }

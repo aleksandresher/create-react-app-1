@@ -1,10 +1,10 @@
-import NavBar from "@/components/nav/Navbar";
+import NavBarWrapper from "@/components/nav/NavBarWrapper";
 import Footer from "@/components/footer/Footer";
 
 export default function DashboardLayout({ children }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <NavBar />
+      <NavBarWrapper />
       <main className="flex-grow"> {children}</main>
 
       <Footer />

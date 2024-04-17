@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import LogOut from "../logout/LogOut";
 
-const NavBar = () => {
+const NavBar = ({ userCookie }) => {
   const pathname = usePathname();
 
   function defineActive(path) {
@@ -92,9 +92,7 @@ const NavBar = () => {
               />
             </Link>
           </li>
-          <li>
-            <LogOut />
-          </li>
+          <li>{userCookie ? <LogOut /> : null}</li>
         </ul>
       </nav>
     </header>
