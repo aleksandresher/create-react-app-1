@@ -1,3 +1,6 @@
+import Footer from "@/components/footer/Footer";
+import NavBar from "@/components/nav/Navbar";
+
 import ProductList from "@/components/products/ProductsList";
 
 async function getProducts() {
@@ -13,8 +16,12 @@ export default async function Home() {
   const products = await getProducts();
 
   return (
-    <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
-      <ProductList products={products.products} />
-    </div>
+    <section>
+      <NavBar />
+      <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
+        <ProductList products={products.products} />
+      </div>
+      <Footer />
+    </section>
   );
 }
