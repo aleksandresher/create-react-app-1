@@ -1,6 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+const URL = process.env.BASE_URL;
 export async function loginUser(user) {
   try {
     const response = await fetch("https://dummyjson.com/auth/login", {
@@ -27,5 +28,5 @@ export async function loginUser(user) {
 
 export async function logout() {
   cookies().delete("auth");
-  redirect("http://localhost:3000/login");
+  redirect(URL);
 }
