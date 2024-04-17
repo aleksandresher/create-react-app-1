@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export function middleware(request) {
+export default function middleware(request) {
   const url = new URL(request.url);
 
   if (url.pathname === "/login") {
