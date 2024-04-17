@@ -16,7 +16,7 @@ export async function loginUser(user) {
 
     if (data.token) {
       cookies().set("auth", data.token);
-      redirect("/");
+      redirect(URL);
     }
 
     return data; // Return the response data
