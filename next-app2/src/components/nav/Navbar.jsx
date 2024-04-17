@@ -18,8 +18,8 @@ const NavBar = ({ userCookie }) => {
   }
   return (
     <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
-      <nav className="w-1/3 pr-[100px]">
-        <ul className="flex justify-between gap-2 ">
+      <nav className="w-1/3 pr-[100px] p-2">
+        <ul className="flex justify-between gap-2 items-center ">
           <li>
             <Link
               href="/"

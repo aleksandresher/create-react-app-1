@@ -16,9 +16,7 @@ export default async function SingleProductPage({ params }) {
   const product = await getProduct({ id });
   return (
     <section className="flex justify-center mt-9">
-      <Suspense fallback={<SingleProductSkeleton />}>
-        <SingleProduct product={product} />
-      </Suspense>
+      <SingleProduct product={product} />
     </section>
   );
 }

@@ -7,7 +7,7 @@ export default function Blog({ recipes }) {
           <BlogPostCard
             key={item.id}
             id={item.id}
-            title={item.title}
+            name={item.name}
             description={item.description}
             image={item.image}
             pubdate={item.publishing_date}
