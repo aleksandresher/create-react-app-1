@@ -1,9 +1,17 @@
 import SingleProduct from "@/components/products/SingleProduct";
-import SingleProductSkeleton from "@/components/skeletons/SingleProductPageSkeleton";
-import { Suspense } from "react";
+
+export async function generateStaticParams() {
+  const products = await fetch("https://dummyjson.com/products").then((res) =>
+    res.json()
+  );
+
+  return products?.products?.map((product) => ({
+    id: product.id.toString(),
+  }));
+}
 
 async function getProduct({ id }) {
-  const res = await fetch(`https://dummyjson.com/product/${id}`);
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch products");
