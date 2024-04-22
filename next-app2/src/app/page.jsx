@@ -1,7 +1,9 @@
-import Footer from "@/components/footer/Footer";
-import NavBarWrapper from "@/components/nav/NavBarWrapper";
+import Footer from "../components/footer/Footer";
+import NavBarWrapper from "../components/nav/NavBarWrapper";
+import Image from "next/image";
 
-import ProductList from "@/components/products/ProductsList";
+import ProductList from "../components/products/ProductsList";
+import Logo from "../../public/blog.png";
 
 async function getProducts() {
   const res = await fetch("https://dummyjson.com/products");
@@ -18,6 +20,10 @@ export default async function Home() {
   return (
     <section>
       <NavBarWrapper />
+      <div className=" fixed">
+        <Image className=" " src={Logo} alt="Blog logo" />
+      </div>
+
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
         <ProductList products={products.products} />
       </div>
