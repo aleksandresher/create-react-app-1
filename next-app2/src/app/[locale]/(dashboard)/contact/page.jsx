@@ -1,4 +1,8 @@
+"use client";
+import { useTranslations } from "next-intl";
+
 export default function Contact() {
+  const t = useTranslations("Index");
   return (
     <section className="w-full flex-grow flex p-10">
       <div className="flex justify-center items-center">
@@ -16,7 +20,7 @@ export default function Contact() {
         <form className="grid grid-cols-2 grid-rows-5 gap-5 gap-y-2 ">
           <span className="flex flex-col gap-1">
             <label htmlFor="name" className="font-medium">
-              Full Name
+              {/* {t("name")} */}
             </label>
             <input
               type="text"

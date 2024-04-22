@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { loginUser } from "../app/actions";
+import { loginUser } from "../../app/actions";
 
 export default function LoginForm() {
   const [user, setUser] = useState({ username: "", password: "" });

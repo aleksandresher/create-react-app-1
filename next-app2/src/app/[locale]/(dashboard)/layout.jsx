@@ -1,5 +1,5 @@
-import NavBarWrapper from "@/components/nav/NavBarWrapper";
-import Footer from "@/components/footer/Footer";
+import NavBarWrapper from "../../../components/nav/NavBarWrapper";
+import Footer from "../../../components/footer/Footer";
 
 export default function DashboardLayout({ children }) {
   return (
