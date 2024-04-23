@@ -1,11 +1,21 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import LogOut from "../logout/LogOut";
 
-const NavBar = ({ userCookie }) => {
+const NavBar = ({
+  userCookie,
+  home,
+  blog,
+  contact,
+  profile,
+  products,
+  about,
+}) => {
   const pathname = usePathname();
+  const params = useParams();
+  const { locale } = params;
 
   function defineActive(path) {
     if (path === "/" && pathname === path) {
@@ -22,64 +32,64 @@ const NavBar = ({ userCookie }) => {
         <ul className=" px-4 flex justify-between gap-4 items-center ">
           <li>
             <Link
-              href="/"
+              href={`/${locale}/`}
               className={
                 defineActive("/") ? "underline underline-offset-4" : ""
               }
             >
-              Home
+              {home}
             </Link>
           </li>
           <li>
             <Link
-              href="/about"
+              href={`/${locale}/about`}
               className={
                 defineActive("/about") ? "underline underline-offset-4" : ""
               }
             >
-              About
+              {about}
             </Link>
           </li>
           <li>
             <Link
-              href="/products"
+              href={`/${locale}/products`}
               className={
                 defineActive("/products") ? "underline underline-offset-4" : ""
               }
             >
-              Products
+              {products}
             </Link>
           </li>
           <li>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className={
                 defineActive("/contact") ? "underline underline-offset-4" : ""
               }
             >
-              Contact
+              {contact}
             </Link>
           </li>
 
           <li>
             <Link
-              href="/blog"
+              href={`/${locale}/blog`}
               className={
                 defineActive("/blog") ? "underline underline-offset-4" : ""
               }
             >
-              Blog
+              {blog}
             </Link>
           </li>
 
           <li>
             <Link
-              href="/profile"
+              href={`/${locale}/profile`}
               className={
                 defineActive("/profile") ? "underline underline-offset-4" : ""
               }
             >
-              Profile
+              {profile}
             </Link>
           </li>
           <li>

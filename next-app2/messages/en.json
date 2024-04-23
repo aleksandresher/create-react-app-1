@@ -5,5 +5,13 @@
     "locale": "{locale, select, ka {ka Georgian} en {🇺🇸 English} other {Unknown}}",
     "label": "Change Language",
     "read": "Read more"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "products": "Products",
+    "profile": "Profile"
   }
 }

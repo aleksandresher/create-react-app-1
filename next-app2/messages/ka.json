@@ -5,5 +5,13 @@
     "locale": "{locale, select, ka {ka Georgian} en {🇺🇸 English} other {Unknown}}",
     "label": "Change Language",
     "read": "მეტის ნახვა"
+  },
+  "Navigation": {
+    "home": "მთავარი გვერდი",
+    "about": "ჩვენს შესახებ",
+    "contact": "კონტაქტი",
+    "blog": "ბლოგი",
+    "products": "პროდუქტები",
+    "profile": "პროფილი"
   }
 }
