@@ -30,6 +30,14 @@ export default function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/", "/about", "/blog", "/contact", "/products", "/profile"],
+  matcher: [
+    "/",
+    "/about",
+    "/blog",
+    "/contact",
+    "/products",
+    "/profile",
+    // "/(ka|en)/:path*",
+  ],
   // matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

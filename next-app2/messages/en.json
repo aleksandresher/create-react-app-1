@@ -1,6 +1,9 @@
 {
   "Index": {
     "title": "Hello world!",
-    "name": "Full name"
+    "name": "Full name",
+    "locale": "{locale, select, ka {ka Georgian} en {🇺🇸 English} other {Unknown}}",
+    "label": "Change Language",
+    "read": "Read more"
   }
 }

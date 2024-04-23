@@ -18,13 +18,14 @@ export default async function Home({ params }) {
   unstable_setRequestLocale(params.locale);
   const t = await getTranslations("Index");
   const products = await getProducts();
+  const { locale } = params;
 
   return (
     <section>
       <NavBarWrapper />
       <p>{t("name")}</p>
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
-        <ProductList products={products.products} />
+        <ProductList products={products.products} locale={locale} />
       </div>
       <Footer />
     </section>

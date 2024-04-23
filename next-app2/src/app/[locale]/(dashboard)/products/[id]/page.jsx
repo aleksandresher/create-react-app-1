@@ -1,4 +1,4 @@
-import SingleProduct from "@/components/products/SingleProduct";
+import SingleProduct from "../../../../../components/products/SingleProduct";
 
 export async function generateStaticParams() {
   const products = await fetch("https://dummyjson.com/products").then((res) =>
