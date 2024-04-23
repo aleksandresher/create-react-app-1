@@ -1,4 +1,4 @@
-import SingleBlog from "@/components/blogs/SingleBlog";
+import SingleBlog from "../../../../../components/blogs/SingleBlog";
 
 export async function generateStaticParams() {
   const blogs = await fetch("https://dummyjson.com/recipes").then((res) =>

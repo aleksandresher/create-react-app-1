@@ -1,6 +1,18 @@
 {
-  "Index": {
+  "Blog": {
     "title": "Hello world!",
-    "name": "Full name"
+    "name": "Full name",
+    "read": "Read more"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "contact": "Contact",
+    "blog": "Blog",
+    "profile": "Profile"
+  },
+  "Auth": {
+    "logout": "Logout"
   }
 }

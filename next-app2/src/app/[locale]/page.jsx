@@ -16,13 +16,12 @@ async function getProducts() {
 
 export default async function Home({ params }) {
   unstable_setRequestLocale(params.locale);
-  const t = await getTranslations("Index");
+  const t = await getTranslations("Blog");
   const products = await getProducts();
 
   return (
     <section>
       <NavBarWrapper />
-      <p>{t("name")}</p>
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
         <ProductList products={products.products} />
       </div>

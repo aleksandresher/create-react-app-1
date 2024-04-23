@@ -4,7 +4,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import LogOut from "../logout/LogOut";
 
-const NavBar = ({ userCookie }) => {
+// import { useTranslations } from "next-intl";
+
+const NavBar = ({
+  userCookie,
+  home,
+  about,
+  products,
+  contact,
+  blog,
+  profile,
+}) => {
   const pathname = usePathname();
 
   function defineActive(path) {
@@ -17,17 +27,19 @@ const NavBar = ({ userCookie }) => {
     }
   }
   return (
-    <header className="flex justify-end items-center  bg-[#f48c06] h-[50px]">
-      <nav className="w-1/3 pr-[100px] p-2">
-        <ul className="flex justify-between gap-2 items-center ">
+    <header className="flex justify-end  items-center  bg-[#f48c06] h-[50px]">
+      <nav className=" pr-[100px] p-2">
+        <ul className="flex justify-between gap-5 items-center ">
           <li>
             <Link
               href="/"
               className={
-                defineActive("/") ? "underline underline-offset-4" : ""
+                defineActive("/")
+                  ? " line-clamp-1 underline underline-offset-4"
+                  : "line-clamp-1"
               }
             >
-              Home
+              {home}
             </Link>
           </li>
           <li>
@@ -37,7 +49,7 @@ const NavBar = ({ userCookie }) => {
                 defineActive("/about") ? "underline underline-offset-4" : ""
               }
             >
-              About
+              {about}
             </Link>
           </li>
           <li>
@@ -47,7 +59,7 @@ const NavBar = ({ userCookie }) => {
                 defineActive("/products") ? "underline underline-offset-4" : ""
               }
             >
-              Products
+              {products}
             </Link>
           </li>
           <li>
@@ -57,7 +69,7 @@ const NavBar = ({ userCookie }) => {
                 defineActive("/contact") ? "underline underline-offset-4" : ""
               }
             >
-              Contact
+              {contact}
             </Link>
           </li>
 
@@ -68,7 +80,7 @@ const NavBar = ({ userCookie }) => {
                 defineActive("/blog") ? "underline underline-offset-4" : ""
               }
             >
-              Blog
+              {blog}
             </Link>
           </li>
 
@@ -79,7 +91,7 @@ const NavBar = ({ userCookie }) => {
                 defineActive("/profile") ? "underline underline-offset-4" : ""
               }
             >
-              Profile
+              {profile}
             </Link>
           </li>
           <li>
@@ -92,6 +104,7 @@ const NavBar = ({ userCookie }) => {
               />
             </Link>
           </li>
+          <li></li>
           <li>{userCookie ? <LogOut /> : null}</li>
         </ul>
       </nav>

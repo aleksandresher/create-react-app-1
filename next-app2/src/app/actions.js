@@ -16,7 +16,7 @@ export async function loginUser(user) {
 
     if (data.token) {
       cookies().set("auth", data.token);
-      redirect("/");
+      redirect("/en");
     }
 
     return data; // Return the response data
@@ -28,5 +28,5 @@ export async function loginUser(user) {
 
 export async function logout() {
   cookies().delete("auth");
-  redirect("/login");
+  redirect("/en/login");
 }
