@@ -1,5 +1,10 @@
 import BlogListSkeleton from "../../../../components/skeletons/BlogListSkeleton";
 
 export default function loading() {
-  return <BlogListSkeleton />;
+  return (
+    <>
+      <h1>Loading</h1>
+      <BlogListSkeleton />
+    </>
+  );
 }
