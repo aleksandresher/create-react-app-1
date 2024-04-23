@@ -2,7 +2,7 @@
   "Index": {
     "title": "Hello world!",
     "name": "სახელი",
-    "locale": "{locale, select, ka {ka Georgian} en {🇺🇸 English} other {Unknown}}",
+    "locale": "{locale, select, ka { ქართული} en { English} other {Unknown}}",
     "label": "Change Language",
     "read": "მეტის ნახვა"
   },
