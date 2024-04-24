@@ -13,7 +13,7 @@ interface props {
   profile:string,
   products:string,
   about:string,
-
+  logoutText:string
 }
 
 const NavBar = ({
@@ -24,8 +24,10 @@ const NavBar = ({
   profile,
   products,
   about,
+  logoutText
 }:props) => {
   const pathname = usePathname();
+  
   const params = useParams();
   const { locale } = params;
 
@@ -116,7 +118,7 @@ const NavBar = ({
               />
             </Link>
           </li>
-          <li className="ml-6">{userCookie ? <LogOut /> : null}</li>
+          <li className="ml-6">{userCookie ? <LogOut text={logoutText}/> : null}</li>
         </ul>
       </nav>
     </header>

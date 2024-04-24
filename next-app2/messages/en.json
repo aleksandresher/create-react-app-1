@@ -1,17 +1,54 @@
 {
-  "Blog": {
-    "title": "Hello world!",
-    "name": "Full name",
-    "locale": "{locale, select, ka { Georgian} en { English} other {Unknown}}",
-    "label": "Change Language",
-    "read": "Read more"
+  "loginPage": {
+    "name": "Name",
+    "username": "Username",
+    "password": "Password",
+    "btnText": "Log In"
   },
-  "Navigation": {
+  "navigation": {
     "home": "Home",
     "about": "About",
     "contact": "Contact",
-    "blog": "Blog",
     "products": "Products",
-    "profile": "Profile"
+    "blogs": "Blogs",
+    "profile": "Profile",
+    "logout": "Logout",
+    "georgian": "Georgian",
+    "english": "English"
+  },
+  "footer": {
+    "termsPrivacy": "Terms & Privacy",
+    "security": "Security",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "products": "Products"
+  },
+  "homePage": {
+    "searchPlaceHolder": "Search for product",
+    "sortBtnText": "Sort",
+    "resetBtnText": "Reset"
+  },
+  "contactPage": {
+    "title": "Contact Us",
+    "description": "Not sure what you need? Your team will be happy to listen to you and suggest products",
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone Number",
+      "address": "Address",
+      "message": "Your message",
+      "messagePlaceHolder": "Write your message here",
+      "btnText": "Send Message"
+    }
+  },
+  "profilePage": {
+    "name": "Name",
+    "lastname": "Lastname",
+    "email": "Email",
+    "password": "Password",
+    "confirmPass": "Confirm password",
+    "btnText": "Save"
   }
 }
