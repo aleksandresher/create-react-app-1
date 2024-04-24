@@ -1,27 +1,40 @@
 import SingleBlog from "../../../../../components/blogs/SingleBlog";
 
-export async function generateStaticParams() {
-  const locales = ["en", "ka"];
-  const blogs = await fetch("https://dummyjson.com/recipes").then((res) =>
-    res.json()
-  );
+export const generateStaticParams = async () => {
+  const res = await fetch("https://dummyjson.com/recipes");
+  const data = await res.json();
 
-  return blogs?.recipes?.map((blog) => ({
-    id: blog.id.toString(),
+  return data.recipes.map((recipe) => ({
+    id: recipe.id.toString(),
   }));
+};
 
-  // const localeParams = locales.map((locale) => ({ locale }));
+const getPost = async (id) => {
+  const res = await fetch(`https://dummyjson.com/recipes/${id}`);
+  const data = await res.json();
+  return data;
+};
 
-  // return [...blogParams, ...localeParams];
-}
+// export async function generateStaticParams() {
+//   const locales = ["en", "ka"];
 
-export default function Page({ params }) {
+// return blogs?.recipes?.map((blog) => ({
+//   id: blog.id.toString(),
+// }));
+
+// const localeParams = locales.map((locale) => ({ locale }));
+
+// return [...blogParams, ...localeParams];
+// }
+
+export default async function Page({ params }) {
+  const post = await getPost(params.id);
+
   const { id } = params;
-  console.log(params);
   // const recipe = getBlog({ id });
   return (
     <section className="flex justify-center mt-9">
-      <SingleBlog />
+      <SingleBlog post={post} />
     </section>
   );
 }
