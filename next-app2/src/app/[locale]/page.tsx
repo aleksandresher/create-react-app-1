@@ -4,6 +4,7 @@ import NavBarWrapper from "../../components/nav/NavBarWrapper";
 import ProductList from "../../components/products/ProductsList";
 import { getTranslations } from "next-intl/server";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { ProductApiResponse } from "../../utils/types";
 
 async function getProducts() {
   const res = await fetch("https://dummyjson.com/products");
@@ -11,21 +12,28 @@ async function getProducts() {
   if (!res.ok) {
     throw new Error("Failed to fetch products");
   }
-  return res.json();
+
+  const data:ProductApiResponse = await res.json();
+  return data.products;
 }
 
-export default async function Home({ params }) {
-  unstable_setRequestLocale(params.locale);
-  const t = await getTranslations("Index");
+interface PageProps {
+  params: {
+    locale: string
+  }
+}
+
+export default async function Home({ params: {locale} }: PageProps) {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations("Blog");
   const products = await getProducts();
-  const { locale } = params;
+
 
   return (
     <section>
       <NavBarWrapper />
-      <p>{t("name")}</p>
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
-        <ProductList products={products.products} locale={locale} />
+        <ProductList products={products} locale={locale} />
       </div>
       <Footer />
     </section>

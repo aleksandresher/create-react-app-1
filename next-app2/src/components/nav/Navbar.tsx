@@ -3,6 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
 import LogOut from "../logout/LogOut";
+import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+
+interface props {
+  userCookie: RequestCookie | undefined,
+  home:string,
+  blog:string,
+  contact:string,
+  profile:string,
+  products:string,
+  about:string,
+
+}
 
 const NavBar = ({
   userCookie,
@@ -12,12 +24,12 @@ const NavBar = ({
   profile,
   products,
   about,
-}) => {
+}:props) => {
   const pathname = usePathname();
   const params = useParams();
   const { locale } = params;
 
-  function defineActive(path) {
+  function defineActive(path:string) {
     if (path === "/" && pathname === path) {
       return true;
     } else if (path !== "/" && pathname.startsWith(path)) {
@@ -34,7 +46,9 @@ const NavBar = ({
             <Link
               href={`/${locale}/`}
               className={
-                defineActive("/") ? "underline underline-offset-4" : ""
+                defineActive("/")
+                  ? " line-clamp-1 underline underline-offset-4"
+                  : "line-clamp-1"
               }
             >
               {home}

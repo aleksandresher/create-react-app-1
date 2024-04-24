@@ -7,7 +7,13 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
@@ -26,7 +32,9 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/components/products/ProductsList.ტsx",
+    "src/components/products/Card.tsx"
   ],
   "exclude": [
     "node_modules"

@@ -1,5 +1,5 @@
 {
-  "Index": {
+  "Blog": {
     "title": "Hello world!",
     "name": "Full name",
     "locale": "{locale, select, ka { Georgian} en { English} other {Unknown}}",

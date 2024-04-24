@@ -1,8 +1,8 @@
-"use client";
-import { useTranslations } from "next-intl";
+// "use client";
+// import { useTranslations } from "next-intl";
 
 export default function Contact() {
-  const t = useTranslations("Index");
+  // const t = useTranslations("Index");
   return (
     <section className="w-full flex-grow flex p-10">
       <div className="flex justify-center items-center">
