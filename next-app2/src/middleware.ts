@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import createMiddleware from "next-intl/middleware";
 
 const intlMiddleware = createMiddleware({
@@ -6,9 +6,10 @@ const intlMiddleware = createMiddleware({
   locales: ["en", "ka"],
 
   // Used when no locale matches
+  defaultLocale: 'en'
 });
 
-export default function middleware(request) {
+export default function middleware(request:NextRequest) {
   const url = new URL(request.url);
 
   if (url.pathname === "/login") {

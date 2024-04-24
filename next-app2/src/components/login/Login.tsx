@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { loginUser } from "../../app/actions";
 
 export default function LoginForm() {
   const [user, setUser] = useState({ username: "", password: "" });
 
-  const handleChange = (e) => {
+  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({
       ...prevUser,

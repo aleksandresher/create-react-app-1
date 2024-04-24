@@ -1,7 +1,16 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-export default function Card({ title, image, price, id, locale }) {
+
+interface PageProps {
+  title: string,
+  image: string,
+  price: number,
+  id:number,
+  locale: string
+}
+
+export default function Card({ title, image, price, id, locale }: PageProps) {
   return (
     <Link href={`/${locale}/products/${id}`}>
       <div className="grid grid-cols-1 items-center shadow-lg py-5 gap-2 ">

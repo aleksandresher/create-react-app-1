@@ -1,5 +1,14 @@
-export default function Search({ search, setSearch, sort, sorted }) {
-  const handleChange = (event) => {
+import { Dispatch, ChangeEvent, SetStateAction } from "react";
+
+interface PageProps {
+  search:string,
+  setSearch: Dispatch<SetStateAction<string>>,
+  sort: () => void,
+  sorted: boolean
+}
+
+export default function Search({ search, setSearch, sort, sorted }: PageProps) {
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
