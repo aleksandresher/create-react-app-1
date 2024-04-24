@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 export default function ProfileForm() {
   const initialState = {
@@ -10,25 +10,28 @@ export default function ProfileForm() {
     confirmPassword: "",
   };
 
+  // keys of initalState
+  type InputKey = keyof typeof initialState;
+
   const [inputs, setInputs] = useState(initialState);
 
-  const handleChange = (key, input) => {
+  const handleChange = (key:string, input:string) => {
     setInputs((prevState) => ({ ...prevState, [key]: input }));
   };
 
-  const handleFocus = (key) => {
+  const handleFocus = (key:InputKey) => {
     if (inputs[key] === initialState[key]) {
       setInputs((prevState) => ({ ...prevState, [key]: "" }));
     }
   };
 
-  const handleBlur = (key) => {
+  const handleBlur = (key:InputKey) => {
     if (inputs[key] === "") {
       setInputs((prevState) => ({ ...prevState, [key]: initialState[key] }));
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:FormEvent) => {
     event.preventDefault();
     console.log(inputs);
   };

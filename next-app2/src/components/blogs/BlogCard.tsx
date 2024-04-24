@@ -1,6 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
+
+interface BlogProps {
+  id: number;
+  name: string;
+  description: string;
+  pubdate: string;
+  image: string;
+  locale: string;
+}
 
 export default function BlogPostCard({
   id,
@@ -9,8 +18,8 @@ export default function BlogPostCard({
   pubdate,
   image,
   locale,
-}) {
-  const t = useTranslations("Index");
+}: BlogProps) {
+  // const t = useTranslations("Index");
 
   return (
     <div className="flex flex-col items-center justify-between gap-3 p-6 rounded-md bg-[#fff]">
@@ -25,7 +34,7 @@ export default function BlogPostCard({
       />
       <time className="underline underline-offset-2 ">{pubdate}</time>
       <Link className="font-medium self-bottom" href={`/${locale}/blog/${id}`}>
-        <button className="hover:text-green-600">{t("read")}</button>
+        <button className="hover:text-green-600">Read more</button>
       </Link>
     </div>
   );

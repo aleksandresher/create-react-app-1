@@ -2,8 +2,14 @@
 import { useState, useEffect } from "react";
 import Card from "./Card";
 import Search from "../search/Search";
+import { Product } from "../../utils/types";
 
-export default function ProductList({ products, locale }) {
+interface PageProps {
+  products: Product[]
+  locale: string
+}
+
+export default function ProductList({ products, locale }: PageProps) {
   const [productList, setProductList] = useState(products);
   const [originalData, setOriginalData] = useState(products);
   const [search, setSearch] = useState("");
