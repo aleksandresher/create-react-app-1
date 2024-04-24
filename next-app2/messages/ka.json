@@ -2,14 +2,16 @@
   "Blog": {
     "title": "Hello world!",
     "name": "სახელი",
-    "read": "მეტის წაკითხვა"
+    "locale": "{locale, select, ka { ქართული} en { English} other {Unknown}}",
+    "label": "Change Language",
+    "read": "მეტის ნახვა"
   },
-  "Nav": {
+  "Navigation": {
     "home": "მთავარი გვერდი",
     "about": "ჩვენს შესახებ",
-    "products": "პროდუქტები",
     "contact": "კონტაქტი",
     "blog": "ბლოგი",
+    "products": "პროდუქტები",
     "profile": "პროფილი"
   }
 }

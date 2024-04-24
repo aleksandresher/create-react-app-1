@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-export default function Card({ title, image, price, id }) {
+export default function Card({ title, image, price, id, locale }) {
   return (
-    <Link href={`/products/${id}`}>
+    <Link href={`/${locale}/products/${id}`}>
       <div className="grid grid-cols-1 items-center shadow-lg py-5 gap-2 ">
         <span className="flex justify-center">
           <Image

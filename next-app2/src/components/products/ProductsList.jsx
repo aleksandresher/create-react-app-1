@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import Search from "../search/Search";
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, locale }) {
   const [productList, setProductList] = useState(products);
   const [originalData, setOriginalData] = useState(products);
   const [search, setSearch] = useState("");
@@ -47,6 +47,7 @@ export default function ProductList({ products }) {
               title={item.title}
               image={item.images[0]}
               price={item.price}
+              locale={locale}
             />
           );
         })}

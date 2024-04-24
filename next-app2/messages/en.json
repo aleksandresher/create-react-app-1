@@ -2,17 +2,16 @@
   "Blog": {
     "title": "Hello world!",
     "name": "Full name",
+    "locale": "{locale, select, ka { Georgian} en { English} other {Unknown}}",
+    "label": "Change Language",
     "read": "Read more"
   },
-  "Nav": {
+  "Navigation": {
     "home": "Home",
     "about": "About",
-    "products": "Products",
     "contact": "Contact",
     "blog": "Blog",
+    "products": "Products",
     "profile": "Profile"
-  },
-  "Auth": {
-    "logout": "Logout"
   }
 }

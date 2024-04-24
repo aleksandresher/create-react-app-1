@@ -1,21 +1,21 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import LogOut from "../logout/LogOut";
-
-// import { useTranslations } from "next-intl";
 
 const NavBar = ({
   userCookie,
   home,
-  about,
-  products,
-  contact,
   blog,
+  contact,
   profile,
+  products,
+  about,
 }) => {
   const pathname = usePathname();
+  const params = useParams();
+  const { locale } = params;
 
   function defineActive(path) {
     if (path === "/" && pathname === path) {
@@ -27,12 +27,12 @@ const NavBar = ({
     }
   }
   return (
-    <header className="flex justify-end  items-center  bg-[#f48c06] h-[50px]">
-      <nav className=" pr-[100px] p-2">
-        <ul className="flex justify-between gap-5 items-center ">
+    <header>
+      <nav className="flex items-center p-2 ">
+        <ul className=" px-4 flex justify-between gap-4 items-center ">
           <li>
             <Link
-              href="/"
+              href={`/${locale}/`}
               className={
                 defineActive("/")
                   ? " line-clamp-1 underline underline-offset-4"
@@ -44,7 +44,7 @@ const NavBar = ({
           </li>
           <li>
             <Link
-              href="/about"
+              href={`/${locale}/about`}
               className={
                 defineActive("/about") ? "underline underline-offset-4" : ""
               }
@@ -54,7 +54,7 @@ const NavBar = ({
           </li>
           <li>
             <Link
-              href="/products"
+              href={`/${locale}/products`}
               className={
                 defineActive("/products") ? "underline underline-offset-4" : ""
               }
@@ -64,7 +64,7 @@ const NavBar = ({
           </li>
           <li>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className={
                 defineActive("/contact") ? "underline underline-offset-4" : ""
               }
@@ -75,7 +75,7 @@ const NavBar = ({
 
           <li>
             <Link
-              href="/blog"
+              href={`/${locale}/blog`}
               className={
                 defineActive("/blog") ? "underline underline-offset-4" : ""
               }
@@ -86,7 +86,7 @@ const NavBar = ({
 
           <li>
             <Link
-              href="/profile"
+              href={`/${locale}/profile`}
               className={
                 defineActive("/profile") ? "underline underline-offset-4" : ""
               }
@@ -104,8 +104,7 @@ const NavBar = ({
               />
             </Link>
           </li>
-          <li></li>
-          <li>{userCookie ? <LogOut /> : null}</li>
+          <li className="ml-6">{userCookie ? <LogOut /> : null}</li>
         </ul>
       </nav>
     </header>
