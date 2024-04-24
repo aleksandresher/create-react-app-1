@@ -2,7 +2,7 @@ import Footer from "../../components/footer/Footer";
 import NavBarWrapper from "../../components/nav/NavBarWrapper";
 
 import ProductList from "../../components/products/ProductsList";
-import { getTranslations } from "next-intl/server";
+// import { getTranslations } from "next-intl/server";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { ProductApiResponse } from "../../utils/types";
 
@@ -13,21 +13,20 @@ async function getProducts() {
     throw new Error("Failed to fetch products");
   }
 
-  const data:ProductApiResponse = await res.json();
+  const data: ProductApiResponse = await res.json();
   return data.products;
 }
 
 interface PageProps {
   params: {
-    locale: string
-  }
+    locale: string;
+  };
 }
 
-export default async function Home({ params: {locale} }: PageProps) {
+export default async function Home({ params: { locale } }: PageProps) {
   unstable_setRequestLocale(locale);
-  const t = await getTranslations("Blog");
+  // const t = await getTranslations("Blog");
   const products = await getProducts();
-
 
   return (
     <section>

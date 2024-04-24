@@ -1,7 +1,8 @@
 import NavBar from "./Navbar";
 import { cookies } from "next/headers";
 import { useTranslations } from "next-intl";
-import LanguageToggle from "../language/LanguageToggle";
+import ThemeSwitcher from "../theme-switcher/ThemeSwitcher";
+// import LanguageToggle from "../language/LanguageToggle";
 
 export default function NavBarWrapper() {
   const t = useTranslations("Nav");
@@ -19,7 +20,8 @@ export default function NavBarWrapper() {
         blog={t("blog")}
         profile={t("profile")}
       />
-      <LanguageToggle />
+      <ThemeSwitcher />
+      {/* <LanguageToggle /> */}
     </>
   );
 }
