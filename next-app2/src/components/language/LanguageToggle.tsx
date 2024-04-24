@@ -7,7 +7,7 @@ export default function LanguageToggle() {
   }
   return (
     <section>
-      <select id="lang" onChange={toggle}> 
+      <select id="lang"> {/* onChange={toggle} */} 
         <option value="ka">Georgian</option>
         <option value="en">English</option>
       </select>

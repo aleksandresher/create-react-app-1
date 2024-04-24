@@ -2,7 +2,12 @@
 
 import { useEffect } from "react";
 
-export default function Error({ error, reset }) {
+interface PageProps {
+  error: Error & { digest?: string }
+  reset: () => void
+}
+
+export default function Error({ error, reset }: PageProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);

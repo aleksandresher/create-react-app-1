@@ -1,4 +1,4 @@
-import { NextIntlClientProvider, useMessages } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { useLocale, useTranslations } from "next-intl";
 import LocaleSwitcherSelect from "./LocaleSwitchSelect";
 

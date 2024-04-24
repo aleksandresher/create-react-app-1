@@ -35,7 +35,7 @@
     "**/*.tsx",
     "src/components/products/ProductsList.ტsx",
     "src/components/products/Card.tsx"
-  ],
+, "src/app/actions.js"  ],
   "exclude": [
     "node_modules"
   ]
