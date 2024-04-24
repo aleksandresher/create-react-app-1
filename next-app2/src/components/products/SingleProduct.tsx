@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default async function SingleProduct({ product }) {
+export default async function SingleProduct({product}: { product: any } ) {
   return (
     <div className="flex flex-col shadow-2xl p-8 max-w-[500px] m-h-[500px]">
       <Image
