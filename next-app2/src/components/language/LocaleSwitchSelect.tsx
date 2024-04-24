@@ -2,15 +2,20 @@
 
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
-export default function LocaleSwitcherSelect(props) {
+interface PageProps { 
+  children:ReactNode, 
+  defaultValue:string, 
+  label:string 
+}
+
+export default function LocaleSwitcherSelect({ children, defaultValue, label }: PageProps) {
   const router = useRouter();
   const pathname = usePathname();
   const activeLocal = useLocale();
   const activePlaceholder =
     activeLocal === "ka" ? "ქართული" : activeLocal === "en" ? "English" : "";
-
-  const { children, defaultValue, label } = props;
 
   return (
     <label>
