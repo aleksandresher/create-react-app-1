@@ -1,5 +1,13 @@
 import BlogList from "../../../../components/blogs/BlogList";
 
+interface ParamsProp {
+  locale: string;
+}
+
+interface BlogHomeProps {
+  params: ParamsProp;
+}
+
 async function getRecipes() {
   const res = await fetch("https://dummyjson.com/recipes");
 
@@ -9,7 +17,7 @@ async function getRecipes() {
   return res.json();
 }
 
-export default async function Home({ params }) {
+export default async function Home({ params }: BlogHomeProps) {
   const { locale } = params;
   const recipes = await getRecipes();
 

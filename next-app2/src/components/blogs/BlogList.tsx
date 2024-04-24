@@ -1,5 +1,18 @@
 import BlogPostCard from "./BlogCard";
-export default function Blog({ recipes, locale }) {
+
+interface Recipe {
+  id: number;
+  name: string;
+  description: string;
+  image: string;
+  publishing_date: string;
+}
+
+interface BlogListProps {
+  recipes: Recipe[];
+  locale: string;
+}
+export default function Blog({ recipes, locale }: BlogListProps) {
   return (
     <div className="grid grid-cols-3 gap-3 p-12 gap-y-8 bg-[#efefef]">
       {recipes?.map((item) => {

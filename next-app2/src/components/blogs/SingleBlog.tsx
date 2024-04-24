@@ -2,7 +2,25 @@
 import Image from "next/image";
 // import { useState, useEffect } from "react";
 
-export default function SingleBlog({ post }) {
+interface Post {
+  id: number;
+  name: string;
+  image: string;
+  ingredients: string[];
+  instructions: string[];
+  prepTimeMinutes: number;
+  cookTimeMinutes: number;
+  servings: number;
+  difficulty: string;
+  caloriesPerServing: number;
+  MealType: string;
+}
+
+interface SingleBlogProps {
+  post: Post;
+}
+
+export default function SingleBlog({ post }: SingleBlogProps) {
   // const { id } = params;
   // const [recipe, setRecipe] = useState(null);
 
