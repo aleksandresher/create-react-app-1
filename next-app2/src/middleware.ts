@@ -7,17 +7,21 @@ const intlMiddleware = createMiddleware({
   locales: ["en", "ka"],
 
   // Used when no locale matches
-  defaultLocale: 'en'
+  defaultLocale: "en",
 });
 
 export default function middleware(request: NextRequest) {
   const url = new URL(request.url);
-  console.log('middleware on ' + url.pathname)
+  console.log("middleware on " + url.pathname);
 
   // internationalization
-  const currLocale = (() => { //cuurent lang value
+  const currLocale = (() => {
+    //cuurent lang value
     for (let locale of i18n.locales) {
-      if (url.pathname.startsWith(`/${locale}/`) || url.pathname === `/${locale}`) {
+      if (
+        url.pathname.startsWith(`/${locale}/`) ||
+        url.pathname === `/${locale}`
+      ) {
         return locale;
       }
     }
@@ -25,8 +29,8 @@ export default function middleware(request: NextRequest) {
   })();
 
   if (!currLocale) {
-    request.nextUrl.pathname = `/${i18n.defaultLocale}${url.pathname}`
-    return NextResponse.redirect(request.nextUrl)
+    request.nextUrl.pathname = `/${i18n.defaultLocale}${url.pathname}`;
+    return NextResponse.redirect(request.nextUrl);
   }
 
   // authentication
@@ -46,11 +50,12 @@ export default function middleware(request: NextRequest) {
     return intlResult;
   }
 
-  return NextResponse.next()
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
+    "/",
     "/(ka|en)",
     "/(ka|en)/about",
     "/(ka|en)/blog",

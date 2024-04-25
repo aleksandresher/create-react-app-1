@@ -3,17 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 interface PageProps {
-  title: string,
-  image: string,
-  price: number,
-  id:number,
-  locale: string
+  title: string;
+  image: string;
+  price: number;
+  id: number;
+  locale: string;
 }
 
 export default function Card({ title, image, price, id, locale }: PageProps) {
   return (
     <Link href={`/${locale}/products/${id}`}>
-      <div className="grid grid-cols-1 items-center shadow-lg py-5 gap-2 ">
+      <div className="grid grid-cols-1 items-center shadow-lg rounded-[10px] py-5 gap-2 dark:bg-white  ">
         <span className="flex justify-center">
           <Image
             src={image}
@@ -25,15 +25,15 @@ export default function Card({ title, image, price, id, locale }: PageProps) {
         </span>
 
         <span className="flex flex-col items-center">
-          <h1>{title}</h1>
+          <h1 className="dark:text-black">{title}</h1>
           <div className="flex gap-2 items-center h-[40px] mt-2">
-            <p>Price:</p>
+            <p className="dark:text-black">Price:</p>
             <p className="text-green-600">{price}$</p>
           </div>
         </span>
 
         <div className="flex justify-center">
-          <button className="bg-[#faedcd] p-3 rounded-md w-1/2">
+          <button className="bg-[#faedcd] p-3 rounded-md w-1/2 dark:bg-[#c78170]">
             Add to cart.
           </button>
         </div>

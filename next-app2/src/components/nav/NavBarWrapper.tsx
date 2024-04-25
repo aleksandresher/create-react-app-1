@@ -7,19 +7,17 @@ import { getDictionary } from "../../../messages/dictionaries";
 import LanguageToggle from "../language/LanguageToggle";
 
 interface Props {
-  locale: Locale
+  locale: Locale;
 }
 
 export default async function NavBarWrapper({ locale }: Props) {
-
-  console.log("navbarwrapper " + locale)
-  const {navigation: dict} = await getDictionary(locale);
+  console.log("navbarwrapper " + locale);
+  const { navigation: dict } = await getDictionary(locale);
   //const t = useTranslations("Nav");
   const userCookie = cookies().get("auth");
 
   return (
-    <>
-      {" "}
+    <section className="flex justify-end items-center pr-8 gap-4">
       <NavBar
         userCookie={userCookie}
         home={dict.home}
@@ -31,7 +29,7 @@ export default async function NavBarWrapper({ locale }: Props) {
         logoutText={dict.logout}
       />
       <ThemeSwitcher />
-      <LanguageToggle locale={locale}/>
-    </>
+      <LanguageToggle locale={locale} />
+    </section>
   );
 }

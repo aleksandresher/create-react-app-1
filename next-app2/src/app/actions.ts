@@ -2,7 +2,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function loginUser(user:FormData) {
+export async function loginUser() {
   try {
     const response = await fetch("https://dummyjson.com/auth/login", {
       method: "POST",

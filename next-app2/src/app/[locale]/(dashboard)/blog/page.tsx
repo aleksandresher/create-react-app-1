@@ -22,7 +22,7 @@ export default async function Home({ params }: BlogHomeProps) {
   const recipes = await getRecipes();
 
   return (
-    <div className="flex justify-center items-center bg-[#f7f8fa] py-12">
+    <div className="flex justify-center items-center bg-[#f7f8fa] py-12 dark:bg-black">
       <BlogList recipes={recipes.recipes} locale={locale} />
     </div>
   );
