@@ -35,11 +35,12 @@ export default async function Home({ params: { locale } }: PageProps) {
   const dict = await getDictionary(locale);
 
   return (
-    <section>
+    <section className=" flex flex-col min-h-screen">
       <NavBarWrapper locale={locale} />
-      <div className="flex justify-center items-center bg-[#f7f8fa] py-12 dark:bg-black">
+      <div className="flex justify-center items-start bg-[#f7f8fa] py-12 flex-grow  dark:bg-black">
         <ProductList products={products} dict={dict.homePage} locale={locale} />
       </div>
+
       <FooterWrapper locale={locale} />
     </section>
   );

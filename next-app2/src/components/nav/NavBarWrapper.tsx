@@ -29,7 +29,7 @@ export default async function NavBarWrapper({ locale }: Props) {
         logoutText={dict.logout}
       />
       <ThemeSwitcher />
-      <LanguageToggle locale={locale} />
+      <LanguageToggle />
     </section>
   );
 }
