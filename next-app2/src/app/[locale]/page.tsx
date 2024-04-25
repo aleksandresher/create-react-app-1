@@ -7,6 +7,7 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { ProductApiResponse } from "../../utils/types";
 import { Locale } from "../../../messages/i18n.config";
 import { getDictionary } from "../../../messages/dictionaries";
+import FooterWrapper from "../../components/footer/FooterWrapper";
 
 async function getProducts() {
   const res = await fetch("https://dummyjson.com/products");
@@ -39,7 +40,7 @@ export default async function Home({ params: { locale } }: PageProps) {
       <div className="flex justify-center items-center bg-[#f7f8fa] py-12 dark:bg-black">
         <ProductList products={products} dict={dict.homePage} locale={locale} />
       </div>
-      {/* <Footer locale={locale} /> */}
+      <FooterWrapper locale={locale} />
     </section>
   );
 }
