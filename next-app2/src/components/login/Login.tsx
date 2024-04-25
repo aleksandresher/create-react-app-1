@@ -2,7 +2,7 @@
 import { ChangeEvent, useState } from "react";
 import { loginUser } from "../../app/actions";
 
-export default function LoginForm() {
+export default function LoginForm({dict}: {dict:any}) {
   const [user, setUser] = useState({ username: "", password: "" });
 
   const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
@@ -22,11 +22,11 @@ export default function LoginForm() {
       >
         <div className="flex flex-col gap-1 w-full">
           <label htmlFor="username" className="font-medium">
-            Name
+            {dict.name}
           </label>
           <input
             type="text"
-            placeholder="Username"
+            placeholder={dict.username}
             name="username"
             value={user.username}
             onChange={handleChange}
@@ -35,11 +35,11 @@ export default function LoginForm() {
         </div>
         <div className="flex flex-col gap-1">
           <label htmlFor="password" className="font-medium">
-            Password
+            {dict.password}
           </label>
           <input
             type="password"
-            placeholder="Password"
+            placeholder={dict.password}
             name="password"
             value={user.password}
             onChange={handleChange}
@@ -51,7 +51,7 @@ export default function LoginForm() {
           type="submit"
           className="bg-green-300 p-2 rounded-md row-span-4 hover:bg-green-400"
         >
-          Log In
+          {dict.btnText}
         </button>
       </form>
     </section>

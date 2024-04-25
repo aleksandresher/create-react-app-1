@@ -1,7 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
 
-export default function ProfileForm() {
+export default function ProfileForm({dict}: {dict:any}) {
   const initialState = {
     name: "John",
     lastname: "Doe",
@@ -44,11 +44,11 @@ export default function ProfileForm() {
       >
         <div className="flex flex-col gap-1">
           <label htmlFor="username" className="font-medium">
-            Name
+            {dict.name}
           </label>
           <input
             type="text"
-            placeholder="name"
+            placeholder={dict.name}
             className="border p-1 h-[40px] rounded-sm"
             id="username"
             value={inputs.name}
@@ -60,11 +60,11 @@ export default function ProfileForm() {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="lastname" className="font-medium">
-            Lastname
+          {dict.lastname}
           </label>
           <input
             type="text"
-            placeholder="lastname"
+            placeholder={dict.lastname}
             className="border p-1"
             id="lastname"
             value={inputs.lastname}
@@ -76,11 +76,11 @@ export default function ProfileForm() {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="email" className="font-medium">
-            Email
+            {dict.email}
           </label>
           <input
             type="email"
-            placeholder="email"
+            placeholder={dict.email}
             className="border p-1"
             id="email"
             value={inputs.email}
@@ -92,11 +92,11 @@ export default function ProfileForm() {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="passwrod" className="font-medium">
-            Password
+            {dict.password}
           </label>
           <input
             type="password"
-            placeholder="password"
+            placeholder={dict.password}
             className="border p-1"
             id="password"
             value={inputs.password}
@@ -106,11 +106,11 @@ export default function ProfileForm() {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="passwrod" className="font-medium">
-            Confirm password
+            {dict.confirmPass}
           </label>
           <input
             type="password"
-            placeholder="confrim password"
+            placeholder={dict.confirmPass}
             className="border p-1"
             id="confirmPassword"
             value={inputs.confirmPassword}
@@ -123,7 +123,7 @@ export default function ProfileForm() {
           type="submit"
           className="bg-green-300 p-2 rounded-md row-span-4 hover:bg-green-400"
         >
-          Save
+          {dict.btnText}
         </button>
       </form>
     </div>
