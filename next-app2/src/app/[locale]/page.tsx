@@ -1,8 +1,5 @@
-// import Footer from "../../components/footer/Footer";
 import NavBarWrapper from "../../components/nav/NavBarWrapper";
-
 import ProductList from "../../components/products/ProductsList";
-// import { getTranslations } from "next-intl/server";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { ProductApiResponse } from "../../utils/types";
 import { Locale } from "../../../messages/i18n.config";
@@ -10,7 +7,7 @@ import { getDictionary } from "../../../messages/dictionaries";
 import FooterWrapper from "../../components/footer/FooterWrapper";
 
 async function getProducts() {
-  const res = await fetch("https://dummyjson.com/products");
+  const res = await fetch("http://localhost:3000/api/products/all");
 
   if (!res.ok) {
     throw new Error("Failed to fetch products");
@@ -28,10 +25,8 @@ interface PageProps {
 
 export default async function Home({ params: { locale } }: PageProps) {
   unstable_setRequestLocale(locale);
-  // const t = await getTranslations("Blog");
   const products = await getProducts();
   console.log(locale);
-
   const dict = await getDictionary(locale);
 
   return (
