@@ -14,7 +14,7 @@ interface BlogListProps {
 }
 export default function Blog({ recipes, locale }: BlogListProps) {
   return (
-    <div className="grid grid-cols-3 gap-3 p-12 gap-y-8 bg-[#efefef]">
+    <div className="grid grid-cols-3 gap-6 p-12 gap-y-8 ">
       {recipes?.map((item) => {
         return (
           <BlogPostCard

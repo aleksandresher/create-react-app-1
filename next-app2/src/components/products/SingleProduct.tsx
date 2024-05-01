@@ -1,6 +1,17 @@
 import Image from "next/image";
 
-export default async function SingleProduct({ product }) {
+export interface ProductProps {
+  product: {
+    id: string;
+    images: string[];
+    title: string;
+    description: string;
+    price: number;
+  };
+}
+
+export default function SingleProduct({ product }: ProductProps) {
+  console.log(product);
   return (
     <div className="flex flex-col shadow-2xl p-8 max-w-[500px] m-h-[500px]">
       <Image

@@ -19,18 +19,6 @@ const getPost = async (id: string) => {
   return data;
 };
 
-// export async function generateStaticParams() {
-//   const locales = ["en", "ka"];
-
-// return blogs?.recipes?.map((blog) => ({
-//   id: blog.id.toString(),
-// }));
-
-// const localeParams = locales.map((locale) => ({ locale }));
-
-// return [...blogParams, ...localeParams];
-// }
-
 interface PageProps {
   params: {
     id: string;
@@ -40,8 +28,6 @@ interface PageProps {
 export default async function Page({ params }: PageProps) {
   const post = await getPost(params.id);
 
-  // const { id } = params;
-  // const recipe = getBlog({ id });
   return (
     <section className="flex justify-center mt-9">
       <SingleBlog post={post} />

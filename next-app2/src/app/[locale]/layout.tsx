@@ -1,8 +1,10 @@
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "../globals.css";
 import { ReactNode } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+import Providers from "../providers/Providers";
+
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -10,17 +12,27 @@ export const metadata = {
 };
 
 interface PageProps {
-  children: ReactNode,
+  children: ReactNode;
   params: {
-    locale: string
-  }
+    locale: string;
+  };
 }
 
-export default function RootLayout({ children, params: { locale } }: PageProps) {
+export default function RootLayout({
+  children,
+  params: { locale },
+}: PageProps) {
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <main className="flex-grow"> {children}</main>
+        <Providers
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="flex-grow"> {children}</main>
+        </Providers>
       </body>
     </html>
   );
