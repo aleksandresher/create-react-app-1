@@ -1,5 +1,11 @@
-const AdminPage = () => {
-  return <div>Admin page</div>;
-};
+import UserList from "../../../components/users/UserLIst";
+import CreateUser from "../../../components/users/CreateUser";
 
-export default AdminPage;
+export default function UsersPage() {
+  return (
+    <div className="px-5 flex flex-col w-full ">
+      <CreateUser />
+      <UserList />
+    </div>
+  );
+}

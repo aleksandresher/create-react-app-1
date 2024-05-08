@@ -1,6 +1,7 @@
 "use server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { createUser, deleteUser } from "../../api";
 
 export async function loginUser() {
   try {
@@ -29,4 +30,14 @@ export async function loginUser() {
 export async function logout() {
   cookies().delete("auth");
   redirect("/en/login");
+}
+
+export async function createUserAction(formData: FormData) {
+  const { name, email, age } = Object.fromEntries(formData);
+
+  return createUser(name as string, email as string, age as string);
+}
+
+export async function deleteUserAction(id: number) {
+  await deleteUser(id);
 }
