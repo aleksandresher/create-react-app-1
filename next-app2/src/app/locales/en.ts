@@ -32,8 +32,8 @@ export default {
   //   "email": "Email",
   //   "phone": "Phone Number",
   //   "address": "Address",
-  //   "message": "Your message",
-  //   "messagePlaceHolder": "Write your message here",
+  message: "Your message",
+  messagePlaceHolder: "Write your message here",
   //   "btnText": "Send Message"
 
   lastname: "Lastname",

@@ -15,12 +15,6 @@ async function getProducts() {
   return data.products;
 }
 
-interface PageProps {
-  params: {
-    locale: "ka" | "en";
-  };
-}
-
 export default async function Home({
   params: { locale },
 }: {

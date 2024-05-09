@@ -17,21 +17,14 @@ export default {
   address: "მისამართი",
   company: "კომაპია",
   mobile: "ტელეფონის ნომერი",
-
+  description: "აღწერა",
+  title: "სათაური",
   searchPlaceHolder: "პროდუქტის ძებნა",
   sortBtnText: "დალაგება",
   resetBtnText: "დაბრუნება",
   addToCard: "კალათში დამატება",
-
-  // "form": {
-  //   "name": "Name",
-  //   "company": "Company",
-  //   "email": "Email",
-  //   "phone": "Phone Number",
-  //   "address": "Address",
-  //   "message": "Your message",
-  //   "messagePlaceHolder": "Write your message here",
-  //   "btnText": "Send Message"
+  message: "თქვენი წერილი",
+  messagePlaceHolder: "დაწერეთ თქვენი წერილი აქ",
 
   lastname: "გვარი",
   email: "მეილი",
