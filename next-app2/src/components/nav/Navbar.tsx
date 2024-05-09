@@ -4,32 +4,19 @@ import Image from "next/image";
 import { usePathname, useParams } from "next/navigation";
 import LogOut from "../logout/LogOut";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
+import { useI18n } from "../../app/locales/client";
 
 interface props {
   userCookie: RequestCookie | undefined;
-  home: string;
-  blog: string;
-  contact: string;
-  profile: string;
-  products: string;
-  about: string;
-  logoutText: string;
+  locale: "en" | "ka";
 }
 
-const NavBar = ({
-  userCookie,
-  home,
-  blog,
-  contact,
-  profile,
-  products,
-  about,
-  logoutText,
-}: props) => {
+const NavBar = ({ userCookie, locale }: props) => {
   const pathname = usePathname();
+  const t = useI18n();
 
   const params = useParams();
-  const { locale } = params;
+  // const { locale } = params;
 
   function defineActive(path: string) {
     if (path === "/" && pathname === path) {
@@ -53,7 +40,7 @@ const NavBar = ({
                   : "line-clamp-1"
               }
             >
-              {home}
+              {t("home")}
             </Link>
           </li>
           <li>
@@ -63,7 +50,7 @@ const NavBar = ({
                 defineActive("/about") ? "underline underline-offset-4" : ""
               }
             >
-              {about}
+              {t("about")}
             </Link>
           </li>
           <li>
@@ -73,7 +60,7 @@ const NavBar = ({
                 defineActive("/products") ? "underline underline-offset-4" : ""
               }
             >
-              {products}
+              {t("products")}
             </Link>
           </li>
           <li>
@@ -83,7 +70,7 @@ const NavBar = ({
                 defineActive("/contact") ? "underline underline-offset-4" : ""
               }
             >
-              {contact}
+              {t("contact")}
             </Link>
           </li>
 
@@ -94,7 +81,7 @@ const NavBar = ({
                 defineActive("/blog") ? "underline underline-offset-4" : ""
               }
             >
-              {blog}
+              {t("blogs")}
             </Link>
           </li>
 
@@ -105,7 +92,7 @@ const NavBar = ({
                 defineActive("/profile") ? "underline underline-offset-4" : ""
               }
             >
-              {profile}
+              {t("profile")}
             </Link>
           </li>
           <li>
@@ -118,9 +105,7 @@ const NavBar = ({
               />
             </Link>
           </li>
-          <li className="ml-6">
-            {userCookie ? <LogOut text={logoutText} /> : null}
-          </li>
+          <li className="ml-6">{userCookie ? <LogOut /> : null}</li>
           <li>
             <Link href={`/${locale}/admin`}>
               <Image

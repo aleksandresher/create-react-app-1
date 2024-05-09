@@ -9,41 +9,34 @@ interface FooterProps {
   about: string;
 }
 
-const Footer = ({
-  home,
-  about,
-  products,
-  contact,
-  terms,
-  security,
-}: FooterProps) => {
+const Footer = () => {
   return (
     <footer className="w-full flex  p-3 items-center  bg-[#131313] h-[80px]">
       <div className="flex justify-start gap-11 w-1/3 pl-4  ">
-        <button className="text-gray-400">{terms}</button>
-        <button className="text-gray-400">{security}</button>
+        <button className="text-gray-400">terms</button>
+        <button className="text-gray-400">security</button>
       </div>
 
       <nav className="w-1/2">
         <ul className="flex gap-4 items-center justify-between">
           <li>
             <Link href="/" className="text-gray-400">
-              {home}
+              Home
             </Link>
           </li>
           <li>
             <Link href="/About" className="text-gray-400">
-              {about}
+              About
             </Link>
           </li>
           <li>
             <Link href="/Products" className="text-gray-400">
-              {products}
+              Products
             </Link>
           </li>
           <li>
             <Link href="/Contact" className="text-gray-400">
-              {contact}
+              Contact
             </Link>
           </li>
         </ul>

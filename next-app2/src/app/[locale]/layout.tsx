@@ -5,6 +5,7 @@ import { ReactNode } from "react";
 import Providers from "../providers/Providers";
 import { Toaster } from "../../../@/components/ui/toaster";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
+import { I18nProviderClient } from "../locales/client";
 
 export const metadata = {
   title: "Create Next App",
@@ -32,7 +33,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
-            <main> {children}</main>
+            <I18nProviderClient locale={locale}>
+              <main> {children}</main>
+            </I18nProviderClient>
           </ReactQueryProvider>
 
           <Toaster />

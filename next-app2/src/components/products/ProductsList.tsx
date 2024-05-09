@@ -6,18 +6,16 @@ import { Product } from "../../utils/types";
 import { Locale } from "../../../messages/i18n.config";
 
 interface PageProps {
-  products: Product[]
-  dict: any,
-  locale: Locale
+  products: Product[];
+  locale: Locale;
 }
 
-export default function ProductList({ products, dict, locale }: PageProps) {
+export default function ProductList({ products, locale }: PageProps) {
   const [productList, setProductList] = useState(products);
   const [originalData, setOriginalData] = useState(products);
   const [search, setSearch] = useState("");
   //console.log(search);
   const [sortedDescending, setSortedDescending] = useState(true);
-
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,7 +44,6 @@ export default function ProductList({ products, dict, locale }: PageProps) {
         setSearch={setSearch}
         sort={sortProduct}
         sorted={sortedDescending}
-        dict={dict}
       />
       <div className="w-11/12 grid grid-cols-4 gap-7 mt-6">
         {productList?.map((item) => {

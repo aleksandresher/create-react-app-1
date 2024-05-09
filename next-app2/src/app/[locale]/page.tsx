@@ -23,20 +23,24 @@ interface PageProps {
   };
 }
 
-export default async function Home({ params: { locale } }: PageProps) {
-  unstable_setRequestLocale(locale);
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: "en" | "ka" };
+}) {
+  // unstable_setRequestLocale(locale);
   const products = await getProducts();
-  console.log(locale);
-  const dict = await getDictionary(locale);
+  // console.log(locale);
+  // const dict = await getDictionary(locale);
 
   return (
     <section className=" flex flex-col min-h-screen">
       <NavBarWrapper locale={locale} />
       <div className="flex justify-center items-start bg-[#f7f8fa] py-12 flex-grow  dark:bg-black">
-        <ProductList products={products} dict={dict.homePage} locale={locale} />
+        <ProductList products={products} locale={locale} />
       </div>
 
-      <FooterWrapper locale={locale} />
+      <FooterWrapper />
     </section>
   );
 }

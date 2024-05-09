@@ -6,19 +6,12 @@ interface Props {
   locale: Locale;
 }
 
-export default async function FooterWrapper({ locale }: Props) {
-  const { footer: dict } = await getDictionary(locale);
+export default async function FooterWrapper() {
+  // const { footer: dict } = await getDictionary(locale);
 
   return (
     <section>
-      <Footer
-        home={dict.home}
-        about={dict.about}
-        products={dict.products}
-        contact={dict.contact}
-        security={dict.security}
-        terms={dict.termsPrivacy}
-      />
+      <Footer />
     </section>
   );
 }
