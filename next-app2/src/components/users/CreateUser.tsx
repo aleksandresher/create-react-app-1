@@ -11,7 +11,7 @@ import {
   DialogClose,
 } from "../../../@/components/ui/dialog";
 import { useToast } from "../../../@/components/ui/use-toast";
-
+import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 
 interface UserType {
@@ -21,6 +21,7 @@ interface UserType {
 }
 
 const CreateUser = () => {
+  const queryClient = useQueryClient();
   const {
     register,
     handleSubmit,
@@ -46,6 +47,7 @@ const CreateUser = () => {
 
       const userData = await response.json();
       toast({ description: "User created successfully" });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
       setOpen(false);
       console.log("User created successfully:", userData);
     } catch (error) {

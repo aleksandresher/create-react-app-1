@@ -6,14 +6,14 @@ import LogOut from "../logout/LogOut";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 
 interface props {
-  userCookie: RequestCookie | undefined,
-  home:string,
-  blog:string,
-  contact:string,
-  profile:string,
-  products:string,
-  about:string,
-  logoutText:string
+  userCookie: RequestCookie | undefined;
+  home: string;
+  blog: string;
+  contact: string;
+  profile: string;
+  products: string;
+  about: string;
+  logoutText: string;
 }
 
 const NavBar = ({
@@ -24,14 +24,14 @@ const NavBar = ({
   profile,
   products,
   about,
-  logoutText
-}:props) => {
+  logoutText,
+}: props) => {
   const pathname = usePathname();
-  
+
   const params = useParams();
   const { locale } = params;
 
-  function defineActive(path:string) {
+  function defineActive(path: string) {
     if (path === "/" && pathname === path) {
       return true;
     } else if (path !== "/" && pathname.startsWith(path)) {
@@ -118,7 +118,20 @@ const NavBar = ({
               />
             </Link>
           </li>
-          <li className="ml-6">{userCookie ? <LogOut text={logoutText}/> : null}</li>
+          <li className="ml-6">
+            {userCookie ? <LogOut text={logoutText} /> : null}
+          </li>
+          <li>
+            <Link href={`/${locale}/admin`}>
+              <Image
+                src="/admin.svg"
+                alt="adminIcon"
+                width={30}
+                height={30}
+                className="dark:stroke-white dark:bg-white rounded-lg"
+              />
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

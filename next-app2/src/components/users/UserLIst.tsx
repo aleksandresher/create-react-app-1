@@ -15,6 +15,7 @@ import EditUser from "./EditUser";
 import { getUsers } from "../../lib/load-users";
 import { useQuery } from "@tanstack/react-query";
 import UserListSkeleton from "../skeletons/UserListSkeleton";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface User {
   id: number;
@@ -23,28 +24,8 @@ interface User {
   name: string;
 }
 
-const deleteUser = async (id: number) => {
-  try {
-    const response = await fetch(
-      `http://localhost:3000/api/delete-user/${id}`,
-      {
-        method: "DELETE",
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to delete user");
-    }
-    toast({ description: "User deleted successfully!" });
-
-    return response.json();
-  } catch (error) {
-    console.error("Error deleting user:", error);
-    throw error;
-  }
-};
-
 export default function UserList() {
+  const queryClient = useQueryClient();
   const { data, isLoading, error } = useQuery({
     queryKey: ["users"],
     queryFn: () => getUsers(),
@@ -53,6 +34,28 @@ export default function UserList() {
   if (isLoading) {
     return <UserListSkeleton />;
   }
+
+  const deleteUser = async (id: number) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/delete-user/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete user");
+      }
+      toast({ description: "User deleted successfully!" });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+
+      return response.json();
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      throw error;
+    }
+  };
 
   return (
     <div className="w-full">
