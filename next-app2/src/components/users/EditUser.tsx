@@ -11,6 +11,7 @@ import {
   DialogClose,
 } from "../../../@/components/ui/dialog";
 import { useToast } from "../../../@/components/ui/use-toast";
+import { useQueryClient } from "@tanstack/react-query";
 
 import { useForm } from "react-hook-form";
 
@@ -35,13 +36,12 @@ const EditUser = ({
   const {
     register,
     handleSubmit,
-    setValue,
+
     formState: { errors },
-  } = useForm<UserType>({
-    defaultValues: { id: id, name: name, age: age, email: email },
-  });
+  } = useForm<UserType>();
   const { toast } = useToast();
   const [open, setOpen] = useState(false);
+  const queryClient = useQueryClient();
 
   const onSubmit = async (data: UserType) => {
     try {
@@ -60,6 +60,7 @@ const EditUser = ({
 
       const userData = await response.json();
       toast({ description: "User edited successfully" });
+      queryClient.invalidateQueries({ queryKey: ["users"] });
       setOpen(false);
       console.log("User edited successfully:", userData);
     } catch (error) {

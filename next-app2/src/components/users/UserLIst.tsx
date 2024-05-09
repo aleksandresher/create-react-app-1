@@ -12,6 +12,9 @@ import {
 } from "../../../@/components/ui/table";
 import { toast, useToast } from "../../../@/components/ui/use-toast";
 import EditUser from "./EditUser";
+import { getUsers } from "../../lib/load-users";
+import { useQuery } from "@tanstack/react-query";
+import UserListSkeleton from "../skeletons/UserListSkeleton";
 
 interface User {
   id: number;
@@ -19,17 +22,6 @@ interface User {
   age: string;
   name: string;
 }
-
-const getUsers = async () => {
-  try {
-    const response = await fetch("http://localhost:3000/api/get-users");
-    const { users } = await response.json();
-    return users.rows;
-  } catch (error) {
-    console.error("Error fetching users:", error);
-    return [];
-  }
-};
 
 const deleteUser = async (id: number) => {
   try {
@@ -53,16 +45,15 @@ const deleteUser = async (id: number) => {
 };
 
 export default function UserList() {
-  const [users, setUsers] = useState([]);
-  const toast = useToast();
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["users"],
+    queryFn: () => getUsers(),
+  });
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const fetchedUsers = await getUsers();
-      setUsers(fetchedUsers);
-    };
-    fetchUsers();
-  }, []);
+  if (isLoading) {
+    return <UserListSkeleton />;
+  }
+
   return (
     <div className="w-full">
       <Table className="w-8/12">
@@ -83,7 +74,7 @@ export default function UserList() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {users.map((user: User) => (
+          {data?.map((user: User) => (
             <TableRow key={user.id}>
               <TableCell>{user.name}</TableCell>
               <TableCell>{user.email}</TableCell>

@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 
 import Providers from "../providers/Providers";
 import { Toaster } from "../../../@/components/ui/toaster";
+import ReactQueryProvider from "../providers/ReactQueryProvider";
 
 export const metadata = {
   title: "Create Next App",
@@ -30,7 +31,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main> {children}</main>
+          <ReactQueryProvider>
+            <main> {children}</main>
+          </ReactQueryProvider>
+
           <Toaster />
         </Providers>
       </body>
