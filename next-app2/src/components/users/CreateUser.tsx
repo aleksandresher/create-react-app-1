@@ -59,41 +59,61 @@ const CreateUser = () => {
           <DialogContent className="w-[450px] opacity-100 bg-[#c7f9cc] left-[35%] top-[35%] absolute">
             <form onSubmit={handleSubmit(onSubmit)}>
               <section className="flex flex-col w-[400px] p-3 gap-4">
-                {" "}
-                <div className="w-full flex items-center justify-between gap-2">
-                  <label htmlFor="name">Name</label>
-                  <input
-                    className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
-                    id="name"
-                    {...register("name", {
-                      required: "this field is required",
-                    })}
-                  />
-                  {errors.name?.message && <span>{errors.name?.message}</span>}
+                <div className="flex flex-col gap-1">
+                  <div className="w-full flex items-center justify-between gap-2">
+                    <label htmlFor="name">Name</label>
+                    <input
+                      className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
+                      id="name"
+                      {...register("name", {
+                        required: "Name is required",
+                      })}
+                    />
+                  </div>
+                  <span className="flex justify-end px-2">
+                    {errors.name?.message && (
+                      <p className="text-red-600">{errors.name?.message}</p>
+                    )}
+                  </span>
                 </div>
-                <div className="w-full flex items-center justify-between gap-2">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
-                    id="email"
-                    {...register("email", {
-                      required: "this field is required",
-                    })}
-                  />
-                  {errors.email?.message && (
-                    <span>{errors.email?.message}</span>
-                  )}
+                <div className="flex flex-col gap-1">
+                  <div className="w-full flex items-center justify-between gap-2">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
+                      id="email"
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                          message: "Invalid email address",
+                        },
+                      })}
+                    />
+                  </div>
+                  <span className="flex justify-end">
+                    {errors.email?.message && (
+                      <p className="text-red-600">{errors.email?.message}</p>
+                    )}
+                  </span>
                 </div>
-                <div className="w-full flex items-center justify-between gap-2">
-                  <label htmlFor="age">Age</label>
-                  <input
-                    className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
-                    id="age"
-                    {...register("age", {
-                      required: "this field is required",
-                    })}
-                  />
-                  {errors.age?.message && <span>{errors.age?.message}</span>}
+
+                <div className="flex flex-col gap-1">
+                  <div className="w-full flex items-center justify-between gap-2">
+                    <label htmlFor="age">Age</label>
+                    <input
+                      className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
+                      id="age"
+                      {...register("age", {
+                        required: "Age is required",
+                      })}
+                    />
+                  </div>
+                  <span className="flex justify-end">
+                    {errors.age?.message && (
+                      <p className="text-red-600">{errors.age?.message}</p>
+                    )}
+                  </span>
                 </div>
               </section>
               <DialogFooter>
