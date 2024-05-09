@@ -13,9 +13,3 @@ export async function createUser(name: string, email: string, age: string) {
     body: JSON.stringify({ name, email, age }),
   });
 }
-
-export async function deleteUser(id: number) {
-  return await fetch(`${BASE_URL}/api/delete-user/${id}`, {
-    method: "DELETE",
-  });
-}
