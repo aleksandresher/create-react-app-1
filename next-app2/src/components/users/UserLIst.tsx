@@ -11,6 +11,7 @@ import {
   TableRow,
 } from "../../../@/components/ui/table";
 import { toast, useToast } from "../../../@/components/ui/use-toast";
+import EditUser from "./EditUser";
 
 interface User {
   id: number;
@@ -96,7 +97,12 @@ export default function UserList() {
                 </button>
               </TableCell>
               <TableCell>
-                <button className="bg-[#55c055] p-2 rounded-md">Edit</button>
+                <EditUser
+                  id={user.id}
+                  name={user.name}
+                  email={user.email}
+                  age={user.age}
+                />
               </TableCell>
             </TableRow>
           ))}
