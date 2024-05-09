@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -9,6 +10,7 @@ import {
   DialogTrigger,
   DialogClose,
 } from "../../../@/components/ui/dialog";
+import { useToast } from "../../../@/components/ui/use-toast";
 
 import { useForm } from "react-hook-form";
 
@@ -24,6 +26,8 @@ const CreateUser = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<UserType>();
+  const { toast } = useToast();
+  const [open, setOpen] = useState(false);
 
   const onSubmit = async (data: UserType) => {
     try {
@@ -36,10 +40,13 @@ const CreateUser = () => {
       });
 
       if (!response.ok) {
+        toast({ variant: "destructive", description: "Failed to create user" });
         throw new Error("Failed to create user");
       }
 
       const userData = await response.json();
+      toast({ description: "User created successfully" });
+      setOpen(false);
       console.log("User created successfully:", userData);
     } catch (error) {
       console.error("Error creating user:", error);
@@ -48,7 +55,7 @@ const CreateUser = () => {
 
   return (
     <section>
-      <Dialog>
+      <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger
           asChild
           className=" flex justify-center  items-center mt-3 border-2 rounded-[8px] border-outset border-opacity-50 border-[#f1a45d] p-2 cursor-pointer w-[150px]"
@@ -104,6 +111,7 @@ const CreateUser = () => {
                     <input
                       className="p-2  rounded-[8px] w-4/5 border border-[#4fec5c] outline-none focus:border-[#48a850]"
                       id="age"
+                      type="number"
                       {...register("age", {
                         required: "Age is required",
                       })}

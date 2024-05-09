@@ -3,8 +3,7 @@ import "../globals.css";
 import { ReactNode } from "react";
 
 import Providers from "../providers/Providers";
-
-// const inter = Inter({ subsets: ["latin"] });
+import { Toaster } from "../../../@/components/ui/toaster";
 
 export const metadata = {
   title: "Create Next App",
@@ -32,6 +31,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main> {children}</main>
+          <Toaster />
         </Providers>
       </body>
     </html>
