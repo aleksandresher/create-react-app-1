@@ -2,7 +2,7 @@
 import { logout } from "../../app/actions";
 import { useI18n } from "../../app/locales/client";
 
-export default async function LogOut() {
+export default function LogOut() {
   const t = useI18n();
   return (
     <div className="flex justify-center items-center   bg-red-500 rounded-lg p-2">

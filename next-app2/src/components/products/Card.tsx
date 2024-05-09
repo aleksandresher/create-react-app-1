@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { useI18n } from "../../app/locales/client";
 
 interface PageProps {
   title: string;
@@ -11,6 +12,7 @@ interface PageProps {
 }
 
 export default function Card({ title, image, price, id, locale }: PageProps) {
+  const t = useI18n();
   return (
     <Link href={`/${locale}/products/${id}`}>
       <div className="grid grid-cols-1 items-center shadow-lg rounded-[10px] py-5 gap-2 dark:bg-white  ">
@@ -33,8 +35,8 @@ export default function Card({ title, image, price, id, locale }: PageProps) {
         </span>
 
         <div className="flex justify-center">
-          <button className="bg-[#faedcd] p-3 rounded-md w-1/2 dark:bg-[#c78170]">
-            Add to cart.
+          <button className="bg-[#faedcd] p-3 rounded-md  dark:bg-[#c78170]">
+            {t("addToCard")}
           </button>
         </div>
       </div>

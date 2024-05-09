@@ -14,6 +14,7 @@ export default {
   english: "English",
   termsPrivacy: "Terms & Privacy",
   security: "Security",
+  addToCard: "Add to cart",
 
   searchPlaceHolder: "Search for product",
   sortBtnText: "Sort",

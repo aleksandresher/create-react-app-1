@@ -17,7 +17,8 @@ export default {
 
   searchPlaceHolder: "პროდუქტის ძებნა",
   sortBtnText: "დალაგება",
-  resetBtnText: "Reset",
+  resetBtnText: "დაბრუნება",
+  addToCard: "კალათში დამატება",
 
   // "form": {
   //   "name": "Name",
