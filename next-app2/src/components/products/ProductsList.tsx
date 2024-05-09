@@ -3,11 +3,10 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import Search from "../search/Search";
 import { Product } from "../../utils/types";
-import { Locale } from "../../../messages/i18n.config";
 
 interface PageProps {
   products: Product[];
-  locale: Locale;
+  locale: "ka" | "en";
 }
 
 export default function ProductList({ products, locale }: PageProps) {

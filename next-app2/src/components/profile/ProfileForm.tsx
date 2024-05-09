@@ -1,7 +1,9 @@
 "use client";
 import { FormEvent, useState } from "react";
+import { useI18n } from "../../app/locales/client";
 
-export default function ProfileForm({dict}: {dict:any}) {
+export default function ProfileForm() {
+  const t = useI18n();
   const initialState = {
     name: "John",
     lastname: "Doe",
@@ -15,23 +17,23 @@ export default function ProfileForm({dict}: {dict:any}) {
 
   const [inputs, setInputs] = useState(initialState);
 
-  const handleChange = (key:string, input:string) => {
+  const handleChange = (key: string, input: string) => {
     setInputs((prevState) => ({ ...prevState, [key]: input }));
   };
 
-  const handleFocus = (key:InputKey) => {
+  const handleFocus = (key: InputKey) => {
     if (inputs[key] === initialState[key]) {
       setInputs((prevState) => ({ ...prevState, [key]: "" }));
     }
   };
 
-  const handleBlur = (key:InputKey) => {
+  const handleBlur = (key: InputKey) => {
     if (inputs[key] === "") {
       setInputs((prevState) => ({ ...prevState, [key]: initialState[key] }));
     }
   };
 
-  const handleSubmit = (event:FormEvent) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     console.log(inputs);
   };
@@ -44,11 +46,11 @@ export default function ProfileForm({dict}: {dict:any}) {
       >
         <div className="flex flex-col gap-1">
           <label htmlFor="username" className="font-medium">
-            {dict.name}
+            {t("name")}
           </label>
           <input
             type="text"
-            placeholder={dict.name}
+            placeholder={t("name")}
             className="border p-1 h-[40px] rounded-sm"
             id="username"
             value={inputs.name}
@@ -60,11 +62,11 @@ export default function ProfileForm({dict}: {dict:any}) {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="lastname" className="font-medium">
-          {dict.lastname}
+            {t("lastname")}
           </label>
           <input
             type="text"
-            placeholder={dict.lastname}
+            placeholder={t("lastname")}
             className="border p-1"
             id="lastname"
             value={inputs.lastname}
@@ -76,11 +78,11 @@ export default function ProfileForm({dict}: {dict:any}) {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="email" className="font-medium">
-            {dict.email}
+            {t("email")}
           </label>
           <input
             type="email"
-            placeholder={dict.email}
+            placeholder={t("email")}
             className="border p-1"
             id="email"
             value={inputs.email}
@@ -92,11 +94,11 @@ export default function ProfileForm({dict}: {dict:any}) {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="passwrod" className="font-medium">
-            {dict.password}
+            {t("password")}
           </label>
           <input
             type="password"
-            placeholder={dict.password}
+            placeholder={t("password")}
             className="border p-1"
             id="password"
             value={inputs.password}
@@ -106,11 +108,11 @@ export default function ProfileForm({dict}: {dict:any}) {
 
         <div className="flex flex-col gap-1">
           <label htmlFor="passwrod" className="font-medium">
-            {dict.confirmPass}
+            {t("confirmPass")}
           </label>
           <input
             type="password"
-            placeholder={dict.confirmPass}
+            placeholder={t("confirmPass")}
             className="border p-1"
             id="confirmPassword"
             value={inputs.confirmPassword}
@@ -123,7 +125,7 @@ export default function ProfileForm({dict}: {dict:any}) {
           type="submit"
           className="bg-green-300 p-2 rounded-md row-span-4 hover:bg-green-400"
         >
-          {dict.btnText}
+          {t("btnText")}
         </button>
       </form>
     </div>

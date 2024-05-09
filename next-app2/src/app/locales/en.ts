@@ -19,6 +19,9 @@ export default {
   searchPlaceHolder: "Search for product",
   sortBtnText: "Sort",
   resetBtnText: "Reset",
+  address: "Address",
+  company: "Company",
+  mobile: "Mobile phone number",
 
   title: "Contact Us",
   description:

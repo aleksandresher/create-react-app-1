@@ -1,8 +1,5 @@
 import NavBarWrapper from "../../../components/nav/NavBarWrapper";
-// import Footer from "../../../components/footer/Footer";
-import { unstable_setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
-// import { Locale } from "../../../../messages/i18n.config";
 import FooterWrapper from "../../../components/footer/FooterWrapper";
 
 interface PageProps {

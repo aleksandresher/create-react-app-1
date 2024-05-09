@@ -1,9 +1,7 @@
 import NavBarWrapper from "../../components/nav/NavBarWrapper";
 import ProductList from "../../components/products/ProductsList";
-import { unstable_setRequestLocale } from "next-intl/server";
+
 import { ProductApiResponse } from "../../utils/types";
-import { Locale } from "../../../messages/i18n.config";
-import { getDictionary } from "../../../messages/dictionaries";
 import FooterWrapper from "../../components/footer/FooterWrapper";
 
 async function getProducts() {
@@ -19,7 +17,7 @@ async function getProducts() {
 
 interface PageProps {
   params: {
-    locale: Locale;
+    locale: "ka" | "en";
   };
 }
 
@@ -28,10 +26,7 @@ export default async function Home({
 }: {
   params: { locale: "en" | "ka" };
 }) {
-  // unstable_setRequestLocale(locale);
   const products = await getProducts();
-  // console.log(locale);
-  // const dict = await getDictionary(locale);
 
   return (
     <section className=" flex flex-col min-h-screen">

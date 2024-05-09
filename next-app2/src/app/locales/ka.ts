@@ -14,6 +14,9 @@ export default {
   english: "ინგლისური",
   termsPrivacy: "წესები და პირობები",
   security: "უსაფრთხოება",
+  address: "მისამართი",
+  company: "კომაპია",
+  mobile: "ტელეფონის ნომერი",
 
   searchPlaceHolder: "პროდუქტის ძებნა",
   sortBtnText: "დალაგება",

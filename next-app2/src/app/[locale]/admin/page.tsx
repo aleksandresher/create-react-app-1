@@ -10,7 +10,7 @@ export default async function UsersPage() {
     <div className="px-5 flex flex-col w-full ">
       <span className="flex items-center gap-5">
         <Link href="/">
-          <button>{t("hello")}</button>
+          <button>{t("home")}</button>
         </Link>
         <CreateUser />
       </span>
