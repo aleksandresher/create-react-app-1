@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "./Card";
 import Search from "../search/Search";
 import { Product } from "../../utils/types";
+import Cart from "./Cart";
 
 interface PageProps {
   products: Product[];
@@ -38,6 +39,7 @@ export default function ProductList({ products, locale }: PageProps) {
   };
   return (
     <section className="w-full flex flex-col items-center">
+      <Cart locale={locale} />
       <Search
         search={search}
         setSearch={setSearch}

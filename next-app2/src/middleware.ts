@@ -59,6 +59,7 @@ export const config = {
     "/(ka|en)/contact",
     "/(ka|en)/products",
     "/(ka|en)/profile",
+    "/(ka|en)/checkout",
     // "/(ka|en)/:path*",
   ],
   // matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
