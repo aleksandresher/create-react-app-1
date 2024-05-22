@@ -19,7 +19,7 @@ export default function ProductList({ products, locale }: PageProps) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const filteredProducts = originalData.filter((item) =>
+      const filteredProducts = originalData?.filter((item) =>
         item.title.toLowerCase().includes(search.toLowerCase())
       );
       setProductList(filteredProducts);
@@ -53,7 +53,7 @@ export default function ProductList({ products, locale }: PageProps) {
               id={item.id}
               key={item.id}
               title={item.title}
-              image={item.images[0]}
+              image={item.image}
               price={item.price}
               locale={locale}
             />

@@ -36,7 +36,7 @@ export default function Card({ title, image, price, id, locale }: PageProps) {
       </span>
 
       <div className="flex justify-center">
-        <CreateProduct title={title} price={price} />
+        {/* <CreateProduct title={title} price={price} /> */}
         {/* <button className="bg-[#faedcd] p-3 rounded-md  dark:bg-[#c78170]">
             {t("addToCard")}
           </button> */}

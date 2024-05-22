@@ -1,19 +1,20 @@
 import NavBarWrapper from "../../components/nav/NavBarWrapper";
 import ProductList from "../../components/products/ProductsList";
+import { getProducts } from "../../lib/load-products";
 
 import { ProductApiResponse } from "../../utils/types";
 import FooterWrapper from "../../components/footer/FooterWrapper";
 
-async function getProducts() {
-  const res = await fetch("http://localhost:3000/api/products/all");
+// async function getProducts() {
+//   const res = await fetch("http://localhost:3000/api/products/all");
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch products");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch products");
+//   }
 
-  const data: ProductApiResponse = await res.json();
-  return data.products;
-}
+//   const data: ProductApiResponse = await res.json();
+//   return data.products;
+// }
 
 export default async function Home({
   params: { locale },
