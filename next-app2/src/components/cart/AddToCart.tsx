@@ -4,7 +4,7 @@ export default function AddToCart({
   product_id,
   quantity,
 }: {
-  product_id: string;
+  product_id: number;
   quantity: number;
 }) {
   async function handleClick() {

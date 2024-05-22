@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useI18n } from "../../app/locales/client";
 import CreateProduct from "./CreateProduct";
+import AddToCart from "../cart/AddToCart";
 
 interface PageProps {
   title: string;
@@ -40,6 +41,7 @@ export default function Card({ title, image, price, id, locale }: PageProps) {
         {/* <button className="bg-[#faedcd] p-3 rounded-md  dark:bg-[#c78170]">
             {t("addToCard")}
           </button> */}
+        <AddToCart product_id={id} quantity={1} />
       </div>
     </div>
     // </Link>
