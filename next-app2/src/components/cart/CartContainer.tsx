@@ -1,4 +1,10 @@
+"use client";
 import Image from "next/image";
+import IncreaseButton from "./IncreaseBtn";
+import DecreaseButton from "./DecreaseBtn";
+import { useQuery } from "@tanstack/react-query";
+import { getCartItems } from "../../lib/load-cart-items";
+import CartSkeleton from "../skeletons/CartSkeleton";
 interface ItemProps {
   quantity: number;
   price: number;
@@ -6,27 +12,33 @@ interface ItemProps {
   product_id: number;
 }
 
-interface CartContainerProps {
-  item: ItemProps[];
-}
-export default function CartContainer({ item }: CartContainerProps) {
+export default function CartContainer() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["cart"],
+    queryFn: () => getCartItems(),
+  });
+
+  if (isLoading) {
+    return <CartSkeleton />;
+  }
   return (
-    <section className="w-[400px]">
-      <h1>Shopping cart</h1>
-      <p>You have {item.length} item in your cart</p>
+    <section className="w-[400px] flex flex-col gap-2">
+      <h1 className=" font-bold">Shopping cart</h1>
+      <p>You have {data?.length} item in your cart</p>
       <div className="flex flex-col gap-3">
-        {item?.map((cartItem) => (
+        {data?.map((cartItem: ItemProps) => (
           <div
             key={cartItem.product_id}
             className="flex  justify-between border border-gray-400 rounded-lg p-3"
           >
             <h2>{cartItem.title}</h2>
             <span className="flex items-center gap-2">
-              <button className="bg-[#c9b8c933] p-1 h-[20px] flex justify-center items-center">
-                -
-              </button>
+              <DecreaseButton
+                productId={cartItem.product_id}
+                quantity={cartItem.quantity}
+              />
               <p>{cartItem.quantity}</p>
-              <button>+</button>
+              <IncreaseButton productId={cartItem.product_id} />
             </span>
 
             <p>${cartItem.price}</p>
