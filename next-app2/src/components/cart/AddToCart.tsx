@@ -1,14 +1,18 @@
 "use client";
 
 export default function AddToCart({
-  product_id,
   quantity,
+  title,
+  price,
+  product_id,
 }: {
-  product_id: number;
+  price: number;
   quantity: number;
+  title: string;
+  product_id: number;
 }) {
   async function handleClick() {
-    const product = { product_id, quantity };
+    const product = { title, quantity, price, product_id };
     try {
       const response = await fetch("/api/cart/add", {
         method: "POST",

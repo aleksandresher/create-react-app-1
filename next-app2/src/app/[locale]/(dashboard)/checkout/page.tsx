@@ -1,7 +1,12 @@
-export default function Checkout(){
-    return (
-        <>
-        <h1>Checkout Page</h1>
-        </>
-    )
+import { getCartItems } from "../../../../lib/load-cart-items";
+import CartContainer from "../../../../components/cart/CartContainer";
+
+export default async function Checkout() {
+  const cartItems = await getCartItems();
+
+  return (
+    <>
+      <CartContainer item={cartItems} />
+    </>
+  );
 }

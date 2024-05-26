@@ -96,7 +96,7 @@ const NavBar = ({ userCookie, locale }: props) => {
             </Link>
           </li>
           <li>
-            <Link href="/cart">
+            <Link href={`/${locale}/checkout`}>
               <Image
                 src="/shopping-cart.png"
                 alt="cart"

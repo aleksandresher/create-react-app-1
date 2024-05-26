@@ -6,7 +6,7 @@ export const revalidate = 0;
 export async function GET() {
   try {
     const products = await sql`SELECT * FROM products;`;
-    console.log("products", products);
+    // console.log("products", products);
 
     return NextResponse.json({ products }, { status: 200 });
   } catch (error) {
