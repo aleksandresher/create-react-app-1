@@ -7,6 +7,7 @@ import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { useI18n } from "../../app/locales/client";
 import { getCartItems } from "../../lib/load-cart-items";
 import { useQuery } from "@tanstack/react-query";
+import CartIcon from "../svg/CartIcon";
 
 interface props {
   userCookie: RequestCookie | undefined;
@@ -104,17 +105,12 @@ const NavBar = ({ userCookie, locale }: props) => {
           </li>
           <li className="relative">
             <span>
-              <p className="absolute bottom-3 left-3 text-red-900">
+              <p className="absolute bottom-4 left-3 text-red-900">
                 {data?.length}
               </p>
             </span>
             <Link href={`/${locale}/checkout`}>
-              <Image
-                src="/shopping-cart.png"
-                alt="cart"
-                width={20}
-                height={20}
-              />
+              <CartIcon />
             </Link>
           </li>
           <li className="ml-6">{userCookie ? <LogOut /> : null}</li>

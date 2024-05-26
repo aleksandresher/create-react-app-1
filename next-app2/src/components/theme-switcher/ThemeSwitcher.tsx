@@ -22,7 +22,7 @@ const ThemeSwitcher: React.FC = () => {
   if (!mounted)
     return (
       <Image
-        src={defaultImg}
+        src={SunDark}
         width={26}
         height={26}
         alt="Loading Light/Dark Toggle"
