@@ -8,7 +8,7 @@ export async function GET() {
     const user_id = 5;
 
     const { rows: cartItems } = await sql`
-      SELECT * FROM cart WHERE user_id = ${user_id}
+      SELECT * FROM cart WHERE user_id = ${user_id} ORDER BY created_at ASC
     `;
 
     if (cartItems.length === 0) {
