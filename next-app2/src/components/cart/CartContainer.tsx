@@ -2,6 +2,7 @@
 import Image from "next/image";
 import IncreaseButton from "./IncreaseBtn";
 import DecreaseButton from "./DecreaseBtn";
+import DeleteButton from "./DeleteBtn";
 import { useQuery } from "@tanstack/react-query";
 import { getCartItems } from "../../lib/load-cart-items";
 import CartSkeleton from "../skeletons/CartSkeleton";
@@ -41,15 +42,8 @@ export default function CartContainer() {
               <IncreaseButton productId={cartItem.product_id} />
             </span>
 
-            <p>${cartItem.price}</p>
-            <button>
-              <Image
-                src="/icons8-delete.svg"
-                width={30}
-                height={30}
-                alt="delete icon"
-              />
-            </button>
+            <p>${cartItem.price * cartItem.quantity}</p>
+            <DeleteButton product_id={cartItem.product_id} />
           </div>
         ))}
       </div>
