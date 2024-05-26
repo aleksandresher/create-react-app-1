@@ -13,7 +13,7 @@ interface PageProps {
   locale: string;
 }
 
-export default function Card({ title, image, price, id, locale }: PageProps) {
+export default function Card({ title, image, price, id }: PageProps) {
   const t = useI18n();
   return (
     // <Link href={`/${locale}/products/${id}`}>
@@ -37,10 +37,6 @@ export default function Card({ title, image, price, id, locale }: PageProps) {
       </span>
 
       <div className="flex justify-center">
-        {/* <CreateProduct title={title} price={price} /> */}
-        {/* <button className="bg-[#faedcd] p-3 rounded-md  dark:bg-[#c78170]">
-            {t("addToCard")}
-          </button> */}
         <AddToCart title={title} quantity={1} price={price} product_id={id} />
       </div>
     </div>
