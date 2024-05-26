@@ -5,6 +5,8 @@ import { usePathname, useParams } from "next/navigation";
 import LogOut from "../logout/LogOut";
 import { RequestCookie } from "next/dist/compiled/@edge-runtime/cookies";
 import { useI18n } from "../../app/locales/client";
+import { getCartItems } from "../../lib/load-cart-items";
+import { useQuery } from "@tanstack/react-query";
 
 interface props {
   userCookie: RequestCookie | undefined;
@@ -12,6 +14,11 @@ interface props {
 }
 
 const NavBar = ({ userCookie, locale }: props) => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["cart"],
+    queryFn: () => getCartItems(),
+  });
+
   const pathname = usePathname();
   const t = useI18n();
 
@@ -95,7 +102,12 @@ const NavBar = ({ userCookie, locale }: props) => {
               {t("profile")}
             </Link>
           </li>
-          <li>
+          <li className="relative">
+            <span>
+              <p className="absolute bottom-3 left-3 text-red-900">
+                {data?.length}
+              </p>
+            </span>
             <Link href={`/${locale}/checkout`}>
               <Image
                 src="/shopping-cart.png"

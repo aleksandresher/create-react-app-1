@@ -1,6 +1,7 @@
 "use client";
 import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
+import DeleteIcon from "../svg/DeleteIcon";
 
 export default function DeleteButton({ product_id }: { product_id: number }) {
   const queryClient = useQueryClient();
@@ -26,13 +27,11 @@ export default function DeleteButton({ product_id }: { product_id: number }) {
     }
   };
   return (
-    <button onClick={() => handleClick(product_id)}>
-      <Image
-        src="/icons8-delete.svg"
-        width={30}
-        height={30}
-        alt="delete icon"
-      />
+    <button
+      onClick={() => handleClick(product_id)}
+      className="flex justify-center"
+    >
+      <DeleteIcon />
     </button>
   );
 }

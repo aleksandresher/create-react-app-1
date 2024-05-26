@@ -30,10 +30,10 @@ export default function CartContainer() {
         {data?.map((cartItem: ItemProps) => (
           <div
             key={cartItem.product_id}
-            className="flex  justify-between border border-gray-400 rounded-lg p-3"
+            className="grid grid-cols-4 items-center border border-gray-400 rounded-lg p-3"
           >
             <h2>{cartItem.title}</h2>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 justify-center">
               <DecreaseButton
                 productId={cartItem.product_id}
                 quantity={cartItem.quantity}
@@ -42,7 +42,9 @@ export default function CartContainer() {
               <IncreaseButton productId={cartItem.product_id} />
             </span>
 
-            <p>${cartItem.price * cartItem.quantity}</p>
+            <span className="flex justify-center">
+              ${cartItem.price * cartItem.quantity}
+            </span>
             <DeleteButton product_id={cartItem.product_id} />
           </div>
         ))}

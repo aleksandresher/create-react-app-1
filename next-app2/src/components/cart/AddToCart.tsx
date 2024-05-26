@@ -1,5 +1,5 @@
 "use client";
-
+import { useQueryClient } from "@tanstack/react-query";
 export default function AddToCart({
   quantity,
   title,
@@ -11,6 +11,7 @@ export default function AddToCart({
   title: string;
   product_id: number;
 }) {
+  const queryClient = useQueryClient();
   async function handleClick() {
     const product = { title, quantity, price, product_id };
     try {
@@ -21,9 +22,7 @@ export default function AddToCart({
         },
         body: JSON.stringify(product),
       });
-      if (!response.ok) {
-        throw new Error("Failed to create product");
-      }
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
 
       if (!response.ok) {
         throw new Error("Failed to create product");
