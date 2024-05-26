@@ -5,8 +5,8 @@ export default async function Checkout() {
   const cartItems = await getCartItems();
 
   return (
-    <>
+    <section className="flex justify-center mt-12">
       <CartContainer item={cartItems} />
-    </>
+    </section>
   );
 }
